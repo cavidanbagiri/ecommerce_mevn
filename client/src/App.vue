@@ -1,12 +1,13 @@
 
 <template>
   <div>
-    <p className="text-3xl font-bold underline">
-      Hello cavidan!
-    </p>
+
+    <NavbarComp/>
+
   </div>
 </template>
 
 <script setup>
+import NavbarComp from "./layouts/NavbarComp.vue";
 
 </script>

@@ -2,20 +2,17 @@
 <template>
   <div>
 
-    <NavbarComp/>
-    <CarouselComp/>
-    <CategoriesMain/>
+    <NavbarComp />
 
-    <div style="height:200px">
+    <router-view></router-view>
 
-    </div>
 
   </div>
 </template>
 
 <script setup>
+
 import NavbarComp from "./layouts/NavbarComp.vue";
-import CarouselComp from "./components/Design/CarouselComp.vue";
-import CategoriesMain from "./components/Design/CategoriesMain.vue";
+import HomePage from "./views/HomePage.vue";
 
 </script>

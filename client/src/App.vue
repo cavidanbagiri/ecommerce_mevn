@@ -12,7 +12,6 @@
 
 <script setup>
 
-import NavbarComp from "./layouts/NavbarComp.vue";
-import HomePage from "./views/HomePage.vue";
+  import NavbarComp from "./layouts/NavbarComp.vue";
 
 </script>

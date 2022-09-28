@@ -21,24 +21,30 @@
                         <li class="nav-item">
                             <router-link :to="{name:'Category'}" class="nav-link active text-stone-300 text-md px-2">Category</router-link>
                         </li>
-                        <!-- Brands Dropdown -->
+                        <!-- Category Drowdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle  active text-stone-300 text-md px-2" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Brands
                             </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <router-link :to="{name:'Category'}" class="nav-link active text-stone-300 text-md px-2">
+                            <span><i class="fa-solid fa-cart-shopping fa-xl" style="color:black"></i></span>
+                        </router-link>
+                        <router-link :to="{name:'Category'}" class="nav-link active text-stone-300 text-md px-2">
+                            <span><i class="fa-solid fa-heart fa-xl" style="color:black"></i></span>
+                        </router-link>
                     </form>
                 </div>
             </div>

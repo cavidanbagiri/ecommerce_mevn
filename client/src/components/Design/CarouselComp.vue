@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div id="default-carousel" class="relative my-1" data-carousel="static">
+        <div id="default-carousel" class="relative py-1" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden md:h-96">
                 <!-- Item 1 -->

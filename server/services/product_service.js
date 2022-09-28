@@ -8,16 +8,9 @@ const loadDataForIndex = async () => {
 }
 
 //Create Product Post
-const createProductPost = async () => {
-    const newProduct = new Product({
-        brand : "Parfume De Marly",
-        catalog : "Women Parfume",
-        name : "Akaster",
-        raiting : '5',
-        price:"7999",
-        sex : 'Women'
-    })
-    // return newProduct.save();
+const createProductPost = async (product_data) => {
+    const newProduct = new Product(product_data)
+    return newProduct.save();
 }
 
 

@@ -2,7 +2,6 @@
 const {loadDataForIndex, createProductPost} = require('../services/product_service');
 
 const getIndex = (req, res) => {
-    res.set('Access-Control-Allow-Origin','*');
     loadDataForIndex().then((respond)=>{
         res.send(respond);
     }).catch((err)=>{
@@ -15,7 +14,8 @@ const getCreateProduct = (req, res) =>{
 }
 
 const postCreateProduct = (req, res) => {
-    createProductPost().then((respond)=>{
+    console.log('req.body is : ',req.body);
+    createProductPost(req.body).then((respond)=>{
         res.json({creatingProduct_Post : respond});
     }).catch((err)=>{
         res.json({creatingProductError_Post : err});

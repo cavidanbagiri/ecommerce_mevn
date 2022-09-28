@@ -2,7 +2,7 @@
 <template>
     <div>
 
-        <nav class="navbar navbar-expand-lg p-1 navbar-light bg-blue-300">
+        <nav class="navbar navbar-expand-lg p-1 navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Parfumery</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

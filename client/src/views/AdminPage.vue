@@ -19,36 +19,36 @@
 
 <script setup>
 
-    import axios from 'axios';
-import {ref, reactive} from 'vue';
+import axios from 'axios';
+import { ref, reactive } from 'vue';
 
-    //Create product reactive
-    const product = reactive({
-        brand:null,
-        catalog:null,
-        name:null,
-        raiting:null,
-        price:null,
-        sex:null,
-    });
+//Create product reactive
+const product = reactive({
+    brand: null,
+    catalog: null,
+    name: null,
+    raiting: null,
+    price: null,
+    sex: null,
+});
 
-    const addProduct = () => {
-        axios({
-            method:'post',
-            url:'http://localhost:3000/create',
-            data:{
-                brand:product.brand,
-                catalog:product.catalog,
-                name:product.name,
-                raiting:product.raiting,
-                price:product.price,
-                sex:product.sex,
-            },
-        }).then((res)=>{
-            console.log('axios post ',res);
-        }).catch((err)=>{
-            console.log('axios post',err);
-        })
-    }
+const addProduct = () => {
+    axios({
+        method: 'post',
+        url: 'create',
+        data: {
+            brand: product.brand,
+            catalog: product.catalog,
+            name: product.name,
+            raiting: product.raiting,
+            price: product.price,
+            sex: product.sex,
+        },
+    }).then((res) => {
+        console.log('axios post ', res);
+    }).catch((err) => {
+        console.log('axios post', err);
+    })
+}
 
 </script>

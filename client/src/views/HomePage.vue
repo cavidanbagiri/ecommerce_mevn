@@ -27,7 +27,7 @@
 
 <script setup>
 
-import { ref, computed, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import CarouselComp from "../components/Design/CarouselComp.vue";
 import CategoriesMain from "../components/Design/CategoriesMain.vue";
 import axios from 'axios';
@@ -37,12 +37,9 @@ let products = ref([]);
 onMounted(() => {
     axios({
         method: 'get',
-        url: 'http://localhost:3000'
+        url: '/'
     }).then((respond) => {
         products.value = respond.data;
-        console.log(products.value[0]);
-        console.log(products.value[1]);
-        console.log(products.value[2]);
     }).catch((err) => {
         console.log('axios index ', err);
     })

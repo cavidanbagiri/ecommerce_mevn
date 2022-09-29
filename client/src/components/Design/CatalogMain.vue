@@ -62,7 +62,7 @@
                 <div class=" col-md-5 m-1 bg-inherit border shadow-sm"
                     style="height:300px; background-color: rgba(240,240,240,255);">
                     <div class="flex justify-content-center">
-                        <img class="img-fluid" src="../../../../assets/catalog/gifts.png" alt="" style="height:250px" />
+                        <img class="img-fluid" src="../../assets/catalog/gifts.png" alt="" style="height:250px" />
                     </div>
                     <span class="text-2xl fw-bold">Gifts</span>
                 </div>

@@ -8,6 +8,7 @@ loader();
 
 const {UserRouter, ProductRouter} = require('./routes');
 
+app.use(express.static('public'));
 app.use(express.json());
 
 //Use CORS For Request and Respond Data From Node to Vue

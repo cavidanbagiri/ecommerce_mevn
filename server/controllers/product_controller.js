@@ -14,7 +14,8 @@ const getCreateProduct = (req, res) =>{
 }
 
 const postCreateProduct = (req, res) => {
-    console.log('req.body is : ',req.body);
+    console.log('Req Body : ', req.body);
+    console.log('Req File : ', req.file);
     createProductPost(req.body).then((respond)=>{
         res.json({creatingProduct_Post : respond});
     }).catch((err)=>{

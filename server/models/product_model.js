@@ -9,7 +9,8 @@ const productSchema = new mongoose.Schema({
     name : String,
     raiting : String,
     price : String,
-    sex : String
+    sex : String,
+    file : String
 
 }, { timestamps:true, versionKey:false});
 

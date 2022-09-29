@@ -17,6 +17,10 @@
                             <router-link :to="{name:'Home'}" style="font-family: cursive;" class="nav-link active text-stone-300 fw-bold text-md px-2">Home
                             </router-link>
                         </li>
+                        <!-- Catalog Router -->
+                        <li class="nav-item">
+                            <router-link :to="{name:'Catalog'}" style="font-family: cursive;" class="nav-link active text-stone-300 fw-bold text-md px-2">Catalog</router-link>
+                        </li>
                         <li class="nav-item">
                             <router-link :to="{name:'Home'}" style="font-family: cursive;" class="nav-link active text-stone-300 fw-bold text-md px-2">Perfumes
                             </router-link>
@@ -24,10 +28,6 @@
                         <li class="nav-item">
                             <router-link :to="{name:'Home'}" style="font-family: cursive;" class="nav-link active text-stone-300 fw-bold text-md px-2">Accessories
                             </router-link>
-                        </li>
-                        <!-- Category Router -->
-                        <li class="nav-item">
-                            <router-link :to="{name:'Category'}" style="font-family: cursive;" class="nav-link active text-stone-300 fw-bold text-md px-2">Category</router-link>
                         </li>
                         <!-- Category Drowdown -->
                         <li class="nav-item dropdown">
@@ -47,10 +47,10 @@
                         <input class="form-control ms-2 rounded-lg" type="search" placeholder="Search" aria-label="Search"/>
                     </ul>
                     <form class="d-flex align-items-center">
-                        <router-link :to="{name:'Category'}" class="nav-link active text-stone-300 text-md px-2">
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
                             <span><i class="fa-solid fa-cart-shopping fa-xl" style="color:black"></i></span>
                         </router-link>
-                        <router-link :to="{name:'Category'}" class="nav-link active text-stone-300 text-md px-2">
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
                             <span><i class="fa-regular fa-heart fa-xl" style="color:black"></i></span>
                         </router-link>
                     </form>

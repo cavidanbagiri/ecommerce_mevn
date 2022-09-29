@@ -2,7 +2,7 @@
 <template>
     <div>
 
-        <nav class="navbar navbar-expand-lg p-0 navbar-light">
+        <nav class="navbar navbar-expand-lg p-0 navbar-light border-bottom">
             <div class="container-fluid">
                 <router-link class=" text-xl fw-bold" :to="{name:'Home'}" style="font-style: oblique;">Parfumery</router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -44,7 +44,7 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <input class="form-control ms-2 rounded-lg" type="search" placeholder="Search" aria-label="Search"/>
+                        <input class="form-control ms-2 rounded-lg my-1" type="search" placeholder="Search" aria-label="Search"/>
                     </ul>
                     <form class="d-flex align-items-center">
                         <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">

@@ -1,0 +1,29 @@
+
+<template>
+    <div class="row flex justify-content-space p-1 m-0">
+        <div v-for="product in products" :key="product?.id" class="card border-none border-bottom mx-2" style="width: 14rem;">
+            <ProductCardMainItem :product="product" />
+        </div>
+    </div>
+</template>
+<script setup>
+
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
+import ProductCardMainItem from './ProductCardMainItem.vue';
+
+
+let products = ref([]);
+
+onMounted(() => {
+    axios({
+        method: 'get',
+        url: '/'
+    }).then((respond) => {
+        products.value = respond.data;
+    }).catch((err) => {
+        console.log('axios index ', err);
+    })
+})
+
+</script>

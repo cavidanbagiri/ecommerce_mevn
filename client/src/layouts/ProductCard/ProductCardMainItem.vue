@@ -1,5 +1,7 @@
 <template>
-    <div>
+    <router-link :to="{name:'ProductItem',params:{id:`${props?.product?._id}`}}">
+    <!-- <router-link to="/product/12"> -->
+        <div>
         <img :src="file_name" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title text-md fw-bold">{{props?.product?.brand}}</h5>
@@ -13,6 +15,7 @@
             <a href="#" class="btn btn-dark btn-sm my-1">Add Wishlist</a>
         </div>
     </div>
+    </router-link>
 </template>
 
 <script setup>

@@ -2,10 +2,10 @@
     <router-link :to="{name:'ProductItem',params:{id:`${props?.product?._id}`}}">
     <!-- <router-link to="/product/12"> -->
         <div>
-        <img :src="file_name" class="card-img-top" alt="...">
+        <img :src="file_name" class="card-img-top mt-5" alt="...">
         <div class="card-body">
             <h5 class="card-title text-md fw-bold">{{props?.product?.brand}}</h5>
-            <p class="card-text text-md py-1">{{props?.product?.name}}</p>
+            <p class="card-text text-sm fw-bold py-1">{{props?.product?.name}}</p>
             <div class="d-flex justify-content-between">
                 <span class="card-text text-sm px-0 fw-bold py-1">{{props?.product?.price}}R 
                     <s class="ps-1 text-xs text-gray-400"> {{10000}}RUB</s>

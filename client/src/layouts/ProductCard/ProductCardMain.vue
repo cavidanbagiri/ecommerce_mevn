@@ -1,6 +1,6 @@
 
 <template>
-    <div class="row flex justify-content-evenly p-1 m-0">
+    <div class="row flex justify-content-between p-1 m-0">
         <div v-for="product in products" :key="product?.id" class="card border-none border-bottom mx-2" style="width: 15rem;">
             <ProductCardMainItem :product="product" />
         </div>

@@ -3,14 +3,15 @@
     <div class="row flex justify-content-center mt-2">
         
         <ProductLeftSideFilter/>
-        <ProductLeftSideFilterItem/>
+        <ProductMainSide/>
 
     </div>
 </template>
 
 <script setup>
-import ProductLeftSideFilterItem from '../layouts/ProductCard/ProductLeftSideFilterItem.vue';
+
 import ProductLeftSideFilter from '../layouts/ProductCard/ProductLeftSideFilter.vue';
+import ProductMainSide from '../layouts/ProductCard/ProductMainSide.vue';
 
 
 

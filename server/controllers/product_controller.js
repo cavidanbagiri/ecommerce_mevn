@@ -15,7 +15,8 @@ const getCreateProduct = (req, res) =>{
 
 const postCreateProduct = (req, res) => {
     console.log('Req Body : ', req.body);
-    console.log('Req File : ', req.file);
+    req.body.file = '../uploads/avatars/'+req.file.originalname;
+    console.log('Req File : ', req.file.originalname);
     createProductPost(req.body).then((respond)=>{
         res.json({creatingProduct_Post : respond});
     }).catch((err)=>{

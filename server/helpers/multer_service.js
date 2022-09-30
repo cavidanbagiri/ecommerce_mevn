@@ -8,7 +8,8 @@ const mystorage = multer.diskStorage({
     filename: function (req, file, cb) {
         console.log("file from multer : ",file);
         const uniqueSuffix = path.extname(file.originalname);
-        cb(null, 's'+uniqueSuffix)
+        console.log('file name is  ',file.originalname);
+        cb(null, file.originalname+uniqueSuffix)
     }
 })
 

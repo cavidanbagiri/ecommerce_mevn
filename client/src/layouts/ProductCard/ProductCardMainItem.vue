@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="../../assets/parfume_images/terre_hermes.png" class="card-img-top" alt="...">
+        <img :src="props?.product?.file" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title text-md fw-bold">{{props?.product?.brand}}</h5>
             <p class="card-text text-md py-1">{{props?.product?.name}}</p>
@@ -17,6 +17,13 @@
 
 <script setup>
 
+    import { ref } from 'vue';
+
     const props = defineProps(['product']);
+
+    const file_name = ref('');
+    file_name.value = 'http://localhost:3000/'+props?.product?.file;
+
+    
 
 </script>

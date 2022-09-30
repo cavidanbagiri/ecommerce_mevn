@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="props?.product?.file" class="card-img-top" alt="...">
+        <img :src="file_name" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title text-md fw-bold">{{props?.product?.brand}}</h5>
             <p class="card-text text-md py-1">{{props?.product?.name}}</p>

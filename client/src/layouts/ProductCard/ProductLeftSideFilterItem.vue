@@ -4,5 +4,9 @@
         <span>Main Page</span>
     </div>
 </template>
-<script>
+
+<script setup>
+
+        
+
 </script>

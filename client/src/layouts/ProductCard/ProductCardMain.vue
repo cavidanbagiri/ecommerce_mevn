@@ -12,13 +12,24 @@ import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import ProductCardMainItem from './ProductCardMainItem.vue';
 
-
 let products = ref([]);
 
-onMounted(() => {
-    axios({
+// created(() => {
+//     axios({
+//         method: 'get',
+//         url: 'http://localhost:3000/'
+//     }).then((respond) => {
+//         products.value = respond.data;
+//     }).catch((err) => {
+//         console.log('axios index ', err);
+//     })
+// })
+
+
+onMounted(async() => {
+    await axios({
         method: 'get',
-        url: '/'
+        url: 'http://localhost:3000/'
     }).then((respond) => {
         products.value = respond.data;
     }).catch((err) => {

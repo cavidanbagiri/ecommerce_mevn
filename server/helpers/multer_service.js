@@ -3,13 +3,13 @@ const path = require("path");
 
 const mystorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../uploads/avatars'));
+        cb(null, path.join(__dirname, '../uploads'));
     },
     filename: function (req, file, cb) {
         console.log("file from multer : ",file);
-        const uniqueSuffix = path.extname(file.originalname);
-        console.log('file name is  ',file.originalname);
-        cb(null, file.originalname+uniqueSuffix)
+        // const uniqueSuffix = path.extname(file.originalname);
+        // console.log('file name is  ',file.originalname);
+        cb(null, file.originalname)
     }
 })
 

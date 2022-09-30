@@ -3,7 +3,15 @@ const Product = require('../models/product_model');
 
 //Load Product For Showing Index Page
 const loadDataForIndex = async () => {
-    const products = Product.find();
+    const products = await Product.find();
+    return products;
+}
+
+//Load Parfumery Data From Collection
+const loadParfumeries = async () => {
+    console.log('Load Parfumery Works');
+    const products = await Product.find({'catalog':'Perfume'});
+    console.log('products is : ', products);
     return products;
 }
 
@@ -18,5 +26,6 @@ module.exports = {
 
     loadDataForIndex,
     createProductPost,
+    loadParfumeries
 
 }

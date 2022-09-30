@@ -1,5 +1,5 @@
 
-const {loadDataForIndex, createProductPost} = require('../services/product_service');
+const {loadDataForIndex, createProductPost, loadParfumeries} = require('../services/product_service');
 
 const getIndex = (req, res) => {
     loadDataForIndex().then((respond)=>{
@@ -7,6 +7,15 @@ const getIndex = (req, res) => {
     }).catch((err)=>{
         res.json({categoryindexerror : err});
     })
+}
+
+const getPerfumes = (req, res) => {
+    loadParfumeries().then((respond) => {
+        res.send(respond);
+    }).catch((err)=>{
+        res.json({categoryindexerror : err});
+    })
+    
 }
 
 const getCreateProduct = (req, res) =>{
@@ -25,5 +34,6 @@ const postCreateProduct = (req, res) => {
 module.exports = {
     getIndex,
     postCreateProduct,
-    getCreateProduct
+    getCreateProduct,
+    getPerfumes
 }

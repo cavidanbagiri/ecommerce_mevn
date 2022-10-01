@@ -4,7 +4,7 @@
         <span class="text-4xl fw-bold ps-4" >Fragrances</span>
         <div class="row flex justify-content-between p-1 m-0">
         <div v-for="product in products" :key="product?.id" class="card border-none border-bottom mx-2" style="width: 14rem;">
-            <ProductCardMainItem :product="product" />
+            <ProductMainSideCardItem :product="product" />
         </div>
     </div>
     </div>
@@ -15,7 +15,7 @@
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
-import ProductCardMainItem from './ProductCardMainItem.vue';
+import ProductMainSideCardItem from './ProductMainSideCardItem.vue';
 
 
 const store = useStore();

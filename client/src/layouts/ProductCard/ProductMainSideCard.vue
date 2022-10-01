@@ -2,15 +2,16 @@
 <template>
     <div class="row flex justify-content-between p-1 m-0">
         <div v-for="product in products" :key="product?.id" class="card border-none border-bottom mx-2" style="width: 15rem;">
-            <ProductCardMainItem :product="product" />
+            <ProductMainSideCardItem :product="product" />
         </div>
     </div>
 </template>
 <script setup>
 
+import ProductMainSideCardItem from './ProductMainSideCardItem.vue';
+
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
-import ProductCardMainItem from './ProductCardMainItem.vue';
 
 let products = ref([]);
 

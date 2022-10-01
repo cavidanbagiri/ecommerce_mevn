@@ -10,7 +10,7 @@
         </span>
         <Suspense v-else>
             <template #default>
-                <ProductCardMainAsync />
+                <ProductMainSideCard />
             </template>
             <template #fallback>
                 <h1>...Downloading</h1>
@@ -31,6 +31,7 @@
 import CarouselComp from "../components/Design/CarouselComp.vue";
 import CatalogMain from "../components/Design/CatalogMain.vue";
 import { defineAsyncComponent, onErrorCaptured, ref } from "vue";
+const ProductMainSideCard = defineAsyncComponent(() => import('../layouts/ProductCard/ProductMainSideCard.vue'));
 
 const err = ref(null);
 const returnerr = onErrorCaptured((e)=>{
@@ -38,7 +39,6 @@ const returnerr = onErrorCaptured((e)=>{
     return true;
 })
 
-const ProductCardMainAsync = defineAsyncComponent(() => import('../layouts/ProductCard/ProductCardMain.vue'));
 
 
 </script>

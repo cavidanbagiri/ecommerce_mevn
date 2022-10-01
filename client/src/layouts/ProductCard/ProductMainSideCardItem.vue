@@ -1,6 +1,5 @@
 <template>
     <router-link :to="{name:'ProductItem',params:{id:`${props?.product?._id}`}}">
-    <!-- <router-link to="/product/12"> -->
         <div>
         <img :src="file_name" class="card-img-top mt-5" alt="...">
         <div class="card-body">
@@ -23,6 +22,8 @@
     import { ref } from 'vue';
 
     const props = defineProps(['product']);
+
+    console.log('taking : ', props?.product?.brand);
 
     const file_name = ref('');
     file_name.value = 'http://localhost:3000/'+props?.product?.file;

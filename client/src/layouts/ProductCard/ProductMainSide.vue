@@ -12,20 +12,24 @@
 
 <script setup>
 
-import axios from 'axios';
-import {ref, onMounted} from 'vue';
+
+import { computed, onMounted, ref,  } from 'vue';
+import { useStore } from 'vuex';
 import ProductCardMainItem from './ProductCardMainItem.vue';
+import axios from 'axios';
 
-let products = ref([]);
 
-onMounted(()=>{
-    axios.get('http://localhost:3000/perfumes').
-    then((respond)=>{
-        products.value = respond.data;
-        console.log('products is : ', products);
-    }).catch((err)=>{
-        console.log('Error Happen inside Of Perfume get Page : ', err);
-    })
+const store = useStore();
+
+// let products = ref([]);
+
+onMounted(async()=>{
+    await store.dispatch('LOAD_ALL_PERFUMES');
 })
+
+let products = computed(()=>{
+    return store.getters['GETALLPERFUMES'];
+})
+
 
 </script>

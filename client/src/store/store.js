@@ -1,12 +1,19 @@
 
-import {createStore} from 'vuex';
+
+import axios from 'axios';
+
+import { createStore } from 'vuex';
+
+//Import Modules Here
+import ProductStore from './product';
 
 const store = createStore({
-    state:{},
-    mutations:{},
-    getters:{},
-    actions:{},
+
+    modules:{
+        productStore: ProductStore
+    }
+
 })
 
-export default store
+export default store;
 

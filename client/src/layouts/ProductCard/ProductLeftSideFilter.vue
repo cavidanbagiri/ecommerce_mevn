@@ -53,7 +53,10 @@
             <ul class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
 
                 <li v-for="(brand, index) in brands" :key="index" class="w-full dark:border-gray-600">
-                    <ProductLeftSideFilterItem :brand="brand" />
+                    <ProductLeftSideFilterItem :brand="brand" 
+                    @checkedBrand="checkedBrands" 
+                    @unCheckedBrand="unCheckedBrands"
+                     />
                 </li>
 
             </ul>
@@ -70,13 +73,24 @@
 <script setup>
 
 import { useStore } from 'vuex';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import ProductLeftSideFilterItem from './ProductLeftSideFilterItem.vue';
 
 const store = useStore();
 
-let brands = computed(() => {
-    return store.getters['GETALLMARKS'];
-})
+//Get All Brands From Store 
+let brands = computed(() => {return store.getters['GETALLMARKS'];})
+//Clicked Brands
+let clicked_brands = ref([]);
+//Brands Clicked
+const checkedBrands = (item) => {
+    clicked_brands.value.push(item);
+    console.log(clicked_brands.value);
+}
+//Brands UnClicked
+const unCheckedBrands = (brand) => {
+    clicked_brands.value = clicked_brands.value.filter((item)=>item!==brand);
+    console.log(clicked_brands.value);
+}
 
 </script>

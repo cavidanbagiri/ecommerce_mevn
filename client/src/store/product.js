@@ -6,12 +6,15 @@ export default {
         //Load All Perfumes and Assign
         all_perfumes: [],
         //After Loading All Perfumes, Load All Brands To all_marks as Set
-        all_marks: [],
+        all_brands: [],
+        //Filtered Products -> After Filter Checkbox selected, This States will be change
+        filtered_perfumes : []
     },
     getters: {
         //Get All Perfumes
         GETALLPERFUMES: (state) => state.all_perfumes,
-        GETALLMARKS: (state) => state.all_marks
+        GETALLMARKS: (state) => state.all_brands,
+        GETFILTEREDPERFUMES: (state) => state.filtered_perfumes
     },
     mutations: {
         //Get Perfumes Data && Set Inside Of all_perfumes
@@ -24,8 +27,27 @@ export default {
             data.filter((item)=>{
                 temp_marks.add(item.brand)
             })
-            state.all_marks = temp_marks;
-        }
+            state.all_brands = temp_marks;
+        },
+        //After Checked Filtered items, this function will work
+        SETFILTEREDPRODUCTS(state, filtered_brands){
+            if(filtered_brands.value.length>0){
+                let temp = [];
+                for(let i in filtered_brands.value){
+                    for(let j in state.all_perfumes){
+                        if(filtered_brands.value[i] === state.all_perfumes[j].brand){
+                            console.log('checked is ',filtered_brands.value[i]);
+                            temp.push(state.all_perfumes[j]);
+                        }
+                    }
+                }
+                state.filtered_perfumes = temp;
+            }
+            else{
+                state.filtered_perfumes = []
+            }
+
+        } 
     },
     actions: {
         //Load All Perfumes 

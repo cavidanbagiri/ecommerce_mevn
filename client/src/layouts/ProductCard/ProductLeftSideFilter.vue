@@ -85,12 +85,12 @@ let clicked_brands = ref([]);
 //Brands Clicked
 const checkedBrands = (item) => {
     clicked_brands.value.push(item);
-    console.log(clicked_brands.value);
+    store.commit('SETFILTEREDPRODUCTS', clicked_brands);
 }
 //Brands UnClicked
 const unCheckedBrands = (brand) => {
     clicked_brands.value = clicked_brands.value.filter((item)=>item!==brand);
-    console.log(clicked_brands.value);
+    store.commit('SETFILTEREDPRODUCTS', clicked_brands);
 }
 
 </script>

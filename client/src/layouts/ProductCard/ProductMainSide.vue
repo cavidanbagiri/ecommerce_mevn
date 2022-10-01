@@ -22,7 +22,15 @@ const store = useStore();
 
 
 let products = computed(()=>{
-    return store.getters['GETALLPERFUMES'];
+    
+    if(store.getters['GETFILTEREDPERFUMES'].length > 0){
+        console.log('if enter');
+        return store.getters['GETFILTEREDPERFUMES']
+    }else{
+        console.log('else enter');
+        return store.getters['GETALLPERFUMES'];
+    }
+
 })
 
 

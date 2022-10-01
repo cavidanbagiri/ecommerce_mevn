@@ -23,8 +23,6 @@
 
     const props = defineProps(['product']);
 
-    console.log('taking : ', props?.product?.brand);
-
     const file_name = ref('');
     file_name.value = 'http://localhost:3000/'+props?.product?.file;
 

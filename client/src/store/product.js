@@ -20,7 +20,6 @@ export default {
         },
         //Get Perfumes Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
-            console.log('All Data : ',data);
             let temp_marks = new Set();
             data.filter((item)=>{
                 temp_marks.add(item.brand)
@@ -31,7 +30,6 @@ export default {
     actions: {
         //Load All Perfumes 
         async LOAD_ALL_PERFUMES({ state }) {
-            console.log('Perfumes Action Can Work');
             axios.get('http://localhost:3000/perfumes').
                 then((respond) => {
                     this.commit('SETALLPERFUMES', respond.data);

@@ -5,6 +5,7 @@ export default {
     state: {
         //Load All Perfumes and Assign
         all_perfumes: [],
+        //After Loading All Perfumes, Load All Brands To all_marks as Set
         all_marks: [],
     },
     getters: {

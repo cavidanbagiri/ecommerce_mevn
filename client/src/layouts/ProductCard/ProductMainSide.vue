@@ -13,19 +13,13 @@
 <script setup>
 
 
-import { computed, onMounted, ref,  } from 'vue';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import ProductCardMainItem from './ProductCardMainItem.vue';
-import axios from 'axios';
 
 
 const store = useStore();
 
-// let products = ref([]);
-
-onMounted(async()=>{
-    await store.dispatch('LOAD_ALL_PERFUMES');
-})
 
 let products = computed(()=>{
     return store.getters['GETALLPERFUMES'];

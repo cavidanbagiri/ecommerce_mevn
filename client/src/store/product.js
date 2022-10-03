@@ -12,7 +12,9 @@ export default {
         //Filtered Products -> After Filter Checkbox Selected, Products Will Filtered For Sex
         filtered_sexs : [],
         //Get All Filtered Result
-        filtered_result : []
+        filtered_result : [],
+        //Get One Product Item
+        product_item : null,
     },
     getters: {
         //Get All Perfumes
@@ -20,7 +22,11 @@ export default {
         GETALLMARKS: (state) => state.all_brands,
         GETFILTEREDPERFUMES: (state) => state.filtered_perfumes,
         GETALLFILETEREDSEX: (state) => state.filtered_sex,
-        GETFILTEREDRESULT: (state) => state.filtered_result
+        GETFILTEREDRESULT: (state) => state.filtered_result,
+        GETPRODUCTITEM (state) {
+            console.log('from getting : ', state.product_item);
+            return state.product_item
+        }
     },
     mutations: {
         //Get Perfumes Data && Set Inside Of all_perfumes
@@ -34,6 +40,11 @@ export default {
                 temp_marks.add(item.brand)
             })
             state.all_brands = temp_marks;
+        },
+        //For Getting One Item
+        SETPRODUCTITEM(state, data){
+            console.log('from setting : ', data);
+            state.product_item = data.data;
         },
         SETFILTEREDRESULT(state,all_filtered_items){
             //Create Temporary Array 
@@ -122,6 +133,15 @@ export default {
                 then((respond) => {
                     this.commit('SETALLPERFUMES', respond.data);
                     this.commit('SETALLMARKS', respond.data);
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
+        },
+        //Get One Product By id
+        async LOAD_ONE_DATA({state}, id){
+            await axios.get('http://localhost:3000/product/'+id).
+                then(async(respond) => {
+                    await this.commit('SETPRODUCTITEM', respond)
                 }).catch((err) => {
                     console.log('Error Happen inside Of Perfume get Page : ', err);
                 })

@@ -3,7 +3,8 @@
     <div class="col-md-8">
         <span class="text-4xl fw-bold ps-4" >Fragrances</span>
         <div class="row flex justify-content-between p-1 m-0">
-        <div v-for="product in products" :key="product?.id" class="card border-none border-bottom mx-2" style="width: 14rem;">
+        <div v-for="(product, index) in products" :key="index" class="card border-none border-bottom mx-2" style="width: 14rem;">
+            <span>here</span>
             <ProductMainSideCardItem :product="product" />
         </div>
     </div>
@@ -24,10 +25,8 @@ const store = useStore();
 let products = computed(()=>{
     
     if(store.getters['GETFILTEREDRESULT'].length > 0){
-        console.log('if enter');
         return store.getters['GETFILTEREDRESULT']
     }else{
-        console.log('else enter');
         return store.getters['GETALLPERFUMES'];
     }
 

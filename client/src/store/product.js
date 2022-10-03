@@ -8,7 +8,9 @@ export default {
         //After Loading All Perfumes, Load All Brands To all_marks as Set
         all_brands: [],
         //Filtered Products -> After Filter Checkbox selected, This States will be change
-        filtered_perfumes : []
+        filtered_perfumes : [],
+        //Filtered Products -> After Filter Checkbox Selected, Products Will Filtered For Sex
+        filtered_sexs : []
     },
     getters: {
         //Get All Perfumes
@@ -47,7 +49,23 @@ export default {
                 state.filtered_perfumes = []
             }
 
-        } 
+        },
+        //After CheckedSex, This Function WIll Work Temporaly
+        SETFILTEREDPRODUCTSFORSEXFILTER(state, filtered_sex){
+            let temp = [];
+            for(let [key, value] of Object.entries(filtered_sex)){
+                if(value){
+                    console.log('inside of if value : ', key);
+                    for(let i in state.all_perfumes){
+                        if(state.all_perfumes[i].sex === key){
+                            temp.push(state.all_perfumes[i]);
+                        }
+                    }
+                }
+            }
+            state.filtered_sex = temp;
+            console.log(state.filtered_sex);
+        }
     },
     actions: {
         //Load All Perfumes 

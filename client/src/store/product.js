@@ -38,7 +38,7 @@ export default {
                 for(let i in filtered_brands.value){
                     for(let j in state.all_perfumes){
                         if(filtered_brands.value[i] === state.all_perfumes[j].brand){
-                            console.log('checked is ',filtered_brands.value[i]);
+                            // console.log('checked is ',filtered_brands.value[i]);
                             temp.push(state.all_perfumes[j]);
                         }
                     }
@@ -52,6 +52,7 @@ export default {
         },
         //After CheckedSex, This Function WIll Work Temporaly
         SETFILTEREDPRODUCTSFORSEXFILTER(state, filtered_sex){
+            console.log('sex checked work');
             let temp = [];
             for(let [key, value] of Object.entries(filtered_sex)){
                 if(value){

@@ -21,11 +21,18 @@ const createProductPost = async (product_data) => {
     return newProduct.save();
 }
 
+//Get One Item With Id
+const getProductItem = async(id)=>{
+    const product = await Product.findById(id);
+    return product;
+}
+
 
 module.exports = {
 
     loadDataForIndex,
     createProductPost,
-    loadParfumeries
+    loadParfumeries,
+    getProductItem
 
 }

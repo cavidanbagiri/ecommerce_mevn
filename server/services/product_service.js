@@ -22,7 +22,7 @@ const createProductPost = async (product_data) => {
 }
 
 //Get One Item With Id
-const getProductItem = async(id)=>{
+const getProductItemById = async(id)=>{
     const product = await Product.findById(id);
     return product;
 }
@@ -33,6 +33,6 @@ module.exports = {
     loadDataForIndex,
     createProductPost,
     loadParfumeries,
-    getProductItem
+    getProductItemById
 
 }

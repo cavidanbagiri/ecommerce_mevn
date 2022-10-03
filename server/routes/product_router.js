@@ -4,7 +4,7 @@ const router = express.Router();
 const multer_upload = require('../helpers/multer_service.js');
 
 
-const {getIndex, getCreateProduct, postCreateProduct, getPerfumes} = require('../controllers/product_controller');
+const {getIndex, getCreateProduct, postCreateProduct, getPerfumes, getProductItem} = require('../controllers/product_controller');
 
 //Load Some Data For Home Page
 router.get('/', getIndex);
@@ -14,5 +14,9 @@ router.get('/create', getCreateProduct);
 router.post('/create', multer_upload.single('file'), postCreateProduct);
 //Get Perfumes For Perfume URL
 router.get('/perfumes', getPerfumes)
+//Get Product Item
+router.get('/product/:id', getProductItem)
+
+
 
 module.exports = router;

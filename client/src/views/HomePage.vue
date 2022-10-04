@@ -5,6 +5,8 @@
         <CarouselComp />
         <CatalogMain />
 
+        <DesignBrandsComp/>
+
         <span v-if="err">
             {{err}}
         </span>
@@ -31,6 +33,7 @@
 import CarouselComp from "../components/Design/CarouselComp.vue";
 import CatalogMain from "../components/Design/CatalogMain.vue";
 import { defineAsyncComponent, onErrorCaptured, ref } from "vue";
+import DesignBrandsComp from "../layouts/DesignComponents/DesignBrandsComp.vue";
 const ProductMainSideCard = defineAsyncComponent(() => import('../layouts/ProductCard/ProductMainSideCard.vue'));
 
 const err = ref(null);

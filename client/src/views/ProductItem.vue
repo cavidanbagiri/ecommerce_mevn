@@ -28,7 +28,6 @@ import ProductBlogSection from '../layouts/ProductItem/ProductBlogSection.vue';
 import RecomendedSection from '../layouts/ProductItem/RecomendedSection.vue';
 import ProductImagesSectionComp from '../layouts/ProductItem/ProductImagesSectionComp.vue';
 import ProductInformationSection from '../layouts/ProductItem/ProductInformationSection.vue';
-const ProductMainSideCard = defineAsyncComponent(() => import('../layouts/ProductCard/ProductMainSideCard.vue'));
 
 const route = useRoute();
 const store = useStore();

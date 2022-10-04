@@ -7,17 +7,17 @@
 
         <DesignBrandsComp/>
 
-        <span v-if="err">
+        <!-- <span v-if="err">
             {{err}}
         </span>
         <Suspense v-else>
             <template #default>
-                <ProductMainSideCard />
+                <ProductMainSide />
             </template>
             <template #fallback>
                 <h1>...Downloading</h1>
             </template>
-        </Suspense>
+        </Suspense> -->
 
 
         <div style="height:200px">
@@ -34,7 +34,8 @@ import CarouselComp from "../components/Design/CarouselComp.vue";
 import CatalogMain from "../components/Design/CatalogMain.vue";
 import { defineAsyncComponent, onErrorCaptured, ref } from "vue";
 import DesignBrandsComp from "../layouts/DesignComponents/DesignBrandsComp.vue";
-const ProductMainSideCard = defineAsyncComponent(() => import('../layouts/ProductCard/ProductMainSideCard.vue'));
+
+// const ProductMainSide = defineAsyncComponent(() => import('../layouts/ProductCard/ProductMainSide.vue'));
 
 const err = ref(null);
 const returnerr = onErrorCaptured((e)=>{

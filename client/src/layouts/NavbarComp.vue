@@ -52,12 +52,35 @@
                         <input class="form-control ms-2 border border-dark my-1" type="search" placeholder="Brands" aria-label="Search" />
                     </ul>
                     <form class="d-flex align-items-center">
-                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
-                            <span><i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i></span>
+
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-3">
+                            
+                            <button type="button" class="btn btn-primary border-none position-relative">
+                                <i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    1
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                            
                         </router-link>
-                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
+
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-3">
+                            
+                            <button type="button" class="btn btn-primary border-none position-relative">
+                                <i class="fa-regular fa-heart fa-xl" style="color:black"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    1
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                            
+                        </router-link>
+
+                        <!-- <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
                             <span><i class="fa-regular fa-heart fa-xl" style="color:black"></i></span>
-                        </router-link>
+                        </router-link> -->
+                        
                     </form>
                 </div>
             </div>

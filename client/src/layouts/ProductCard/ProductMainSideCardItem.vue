@@ -6,8 +6,8 @@
             <h5 class="card-title text-md fw-bold">{{props?.product?.brand}}</h5>
             <p class="card-text text-sm fw-bold py-1">{{props?.product?.name}}</p>
             <div class="d-flex justify-content-between">
-                <span class="card-text text-sm px-0 fw-bold py-1">{{props?.product?.price}}R 
-                    <s class="ps-1 text-xs text-gray-400"> {{10000}}RUB</s>
+                <span class="card-text text-sm px-0 fw-bold py-1">{{props?.product?.price}} ₽ 
+                    <s class="ps-1 text-xs text-gray-400"> {{10000}}₽</s>
                     <span class="ms-3 text-xs bg-danger text-white">15%</span>
                 </span>
             </div>

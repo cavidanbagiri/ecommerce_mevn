@@ -1,7 +1,7 @@
 <template>
 
     <!-- Image Section -->
-    <div class="col-md-4">
+    <div class="col-md-5">
         <div class="row flex justify-content-center">
             <div class="col-2 p-2">
                 <div class="my-2 mx-1 shadow-md bg-danger "> <img

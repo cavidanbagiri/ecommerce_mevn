@@ -53,7 +53,7 @@
                     </ul>
                     <form class="d-flex align-items-center">
                         <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
-                            <span><i class="fa-solid fa-cart-shopping fa-xl" style="color:black"></i></span>
+                            <span><i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i></span>
                         </router-link>
                         <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
                             <span><i class="fa-regular fa-heart fa-xl" style="color:black"></i></span>

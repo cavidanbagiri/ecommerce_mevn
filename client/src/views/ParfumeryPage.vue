@@ -10,7 +10,6 @@
 <script setup>
 
 import ProductLeftSideFilter from '../layouts/ProductCard/ProductLeftSideFilter.vue';
-import ProductMainSideCard from '../layouts/ProductCard/ProductMainSideCard.vue';
 import ProductMainSide from '../layouts/ProductCard/ProductMainSide.vue';
 
 import { onMounted } from 'vue';

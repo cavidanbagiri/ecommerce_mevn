@@ -89,7 +89,36 @@ export default {
                 }
             }
         },
-        //After Checked Filtered items, this function will work
+    },
+    actions: {
+        //Load All Products
+        async LOAD_ALL_PRODUCTS({state}){
+            
+        },
+        //Load All Perfumes 
+        async LOAD_ALL_PERFUMES({ state }) {
+            axios.get('http://localhost:3000/perfumes').
+                then((respond) => {
+                    this.commit('SETALLPERFUMES', respond.data);
+                    this.commit('SETALLMARKS', respond.data);
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
+        },
+        //Get One Product By id
+        async LOAD_ONE_DATA({state}, id){
+            await axios.get('http://localhost:3000/product/'+id).
+                then(async(respond) => {
+                    await this.commit('SETPRODUCTITEM', respond)
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
+        }
+    },
+}
+
+
+//After Checked Filtered items, this function will work
         // SETFILTEREDPRODUCTS(state, filtered_brands){
         //     if(filtered_brands.value.length>0){
         //         let temp = [];
@@ -125,28 +154,3 @@ export default {
         //     state.filtered_sex = temp;
         //     console.log(state.filtered_sex);
         // }
-    },
-    actions: {
-        //Load All Perfumes 
-        async LOAD_ALL_PERFUMES({ state }) {
-            axios.get('http://localhost:3000/perfumes').
-                then((respond) => {
-                    this.commit('SETALLPERFUMES', respond.data);
-                    this.commit('SETALLMARKS', respond.data);
-                }).catch((err) => {
-                    console.log('Error Happen inside Of Perfume get Page : ', err);
-                })
-        },
-        //Get One Product By id
-        async LOAD_ONE_DATA({state}, id){
-            await axios.get('http://localhost:3000/product/'+id).
-                then(async(respond) => {
-                    await this.commit('SETPRODUCTITEM', respond)
-                }).catch((err) => {
-                    console.log('Error Happen inside Of Perfume get Page : ', err);
-                })
-        }
-    },
-}
-
-

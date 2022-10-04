@@ -10,20 +10,19 @@
 
 import ProductMainSideCardItem from './ProductMainSideCardItem.vue';
 
-import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 
-let products = ref([]);
+const store = useStore();
 
 onMounted(async() => {
-    await axios({
-        method: 'get',
-        url: 'http://localhost:3000/'
-    }).then((respond) => {
-        products.value = respond.data;
-    }).catch((err) => {
-        console.log('axios index ', err);
-    })
+    await store.dispatch('LOAD_ALL_PERFUMES');
 })
+
+let products = computed(()=>{
+    
+    return store.getters['GETALLPERFUMES']
+
+});
 
 </script>

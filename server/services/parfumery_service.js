@@ -1,11 +1,6 @@
 
 const Parfumery = require('../models/parfumery_model');
 
-//Load Product For Showing Index Page
-const loadDataForIndex = async () => {
-    const parfumeries = await Parfumery.find();
-    return parfumeries;
-}
 
 //Load Parfumery Data From Collection
 const loadParfumeries = async () => {
@@ -30,7 +25,6 @@ const getParfumeryItemById = async(id)=>{
 
 module.exports = {
 
-    loadDataForIndex,
     createParfumeryPost,
     loadParfumeries,
     getParfumeryItemById

@@ -1,14 +1,7 @@
 
-const {loadDataForIndex, createParfumeryPost, loadParfumeries, getParfumeryItemById} = require('../services/parfumery_service');
+const {createParfumeryPost, loadParfumeries, getParfumeryItemById} = require('../services/parfumery_service');
 
-//Load Data For Index page
-const getIndex = (req, res) => {
-    loadDataForIndex().then((respond)=>{
-        res.send(respond);
-    }).catch((err)=>{
-        res.json({categoryindexerror : err});
-    })
-}
+
 //Get All Perfumes
 const getPerfumes = (req, res) => {
     loadParfumeries().then((respond) => {
@@ -42,7 +35,6 @@ const getParfumeryItem = (req, res) => {
 }
 
 module.exports = {
-    getIndex,
     postCreateParfumery,
     getCreateParfumery,
     getPerfumes,

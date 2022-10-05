@@ -4,10 +4,8 @@ const router = express.Router();
 const multer_upload = require('../helpers/multer_service.js');
 
 
-const {getIndex, getCreateParfumery, postCreateParfumery, getPerfumes, getParfumeryItem} = require('../controllers/parfumery_controller');
+const {getCreateParfumery, postCreateParfumery, getPerfumes, getParfumeryItem} = require('../controllers/parfumery_controller');
 
-//Load Some Data For Home Page
-router.get('/', getIndex);
 //Get Create Data From Admin Page
 router.get('/create', getCreateParfumery);
 //Post New Data From Admin Page

@@ -1,9 +1,9 @@
 
 const UserRouter = require('./user_router');
-const ProductRouter = require('./product_router');
+const ParfumeryRouter = require('./parfumery_router');
 
 
 module.exports = {
     UserRouter,
-    ProductRouter
+    ParfumeryRouter
 }

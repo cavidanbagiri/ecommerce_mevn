@@ -1,5 +1,5 @@
 
-const {loadDataForIndex, createProductPost, loadParfumeries, getProductItemById} = require('../services/product_service');
+const {loadDataForIndex, createParfumeryPost, loadParfumeries, getParfumeryItemById} = require('../services/product_service');
 
 //Load Data For Index page
 const getIndex = (req, res) => {
@@ -19,22 +19,22 @@ const getPerfumes = (req, res) => {
     
 }
 //Get Create Product Page
-const getCreateProduct = (req, res) =>{
+const getCreateParfumery = (req, res) =>{
     res.json({create_Product_Get:'Create Product get Page'})
 }
 //Post Create Product Page
-const postCreateProduct = (req, res) => {
+const postCreateParfumery = (req, res) => {
     req.body.file = req.file.originalname;
-    createProductPost(req.body).then((respond)=>{
+    createParfumeryPost(req.body).then((respond)=>{
         res.json({creatingProduct_Post : respond});
     }).catch((err)=>{
         res.json({creatingProductError_Post : err});
     })
 }
 //Get One Product Item
-const getProductItem = (req, res) => {
+const getParfumeryItem = (req, res) => {
     const id = req.params.id;
-    getProductItemById(id).then((respond)=>{
+    getParfumeryItemById(id).then((respond)=>{
         res.send(respond);
     }).catch((err)=>{
         res.json({categoryindexerror : err});
@@ -43,8 +43,8 @@ const getProductItem = (req, res) => {
 
 module.exports = {
     getIndex,
-    postCreateProduct,
-    getCreateProduct,
+    postCreateParfumery,
+    getCreateProduct: getCreateParfumery,
     getPerfumes,
-    getProductItem
+    getParfumeryItem
 }

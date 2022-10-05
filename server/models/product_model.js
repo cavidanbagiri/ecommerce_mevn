@@ -10,6 +10,13 @@ const productSchema = new mongoose.Schema({
     raiting : String,
     price : String,
     sex : String,
+    decription : String,
+    characteristic : String,
+    information : String,
+    comments : {
+        type : Array,
+        default:[]
+    },
     file : String
 
 }, { timestamps:true, versionKey:false});

@@ -1,38 +1,38 @@
 
-const Product = require('../models/product_model');
+const Parfumery = require('../models/product_model');
 
 //Load Product For Showing Index Page
 const loadDataForIndex = async () => {
-    const products = await Product.find();
-    return products;
+    const parfumeries = await Parfumery.find();
+    return parfumeries;
 }
 
 //Load Parfumery Data From Collection
 const loadParfumeries = async () => {
     console.log('Load Parfumery Works');
-    const products = await Product.find({'catalog':'Perfume'});
-    console.log('products is : ', products);
-    return products;
+    const parfumeries = await Parfumery.find({'catalog':'Perfume'});
+    console.log('products is : ', parfumeries);
+    return parfumeries;
 }
 
 //Create Product Post
-const createProductPost = async (product_data) => {
-    const newProduct = new Product(product_data)
-    return newProduct.save();
+const createParfumeryPost = async (parfumery_data) => {
+    const newParfumery = new Parfumery(parfumery_data)
+    return newParfumery.save();
 }
 
 //Get One Item With Id
-const getProductItemById = async(id)=>{
-    const product = await Product.findById(id);
-    return product;
+const getParfumeryItemById = async(id)=>{
+    const parfumery = await Parfumery.findById(id);
+    return parfumery;
 }
 
 
 module.exports = {
 
     loadDataForIndex,
-    createProductPost,
+    createParfumeryPost,
     loadParfumeries,
-    getProductItemById
+    getParfumeryItemById
 
 }

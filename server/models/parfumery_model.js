@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 
-const productSchema = new mongoose.Schema({
+const parfumerySchema = new mongoose.Schema({
 
     brand : String,
     catalog : String,
@@ -10,9 +10,18 @@ const productSchema = new mongoose.Schema({
     raiting : String,
     price : String,
     sex : String,
-    decription : String,
-    characteristic : String,
-    information : String,
+    decription : {
+        type: String,
+        default: ''
+    },
+    characteristic :{
+        type: String,
+        default: ''
+    },
+    information : {
+        type: String,
+        default: ''
+    },
     comments : {
         type : Array,
         default:[]
@@ -21,6 +30,6 @@ const productSchema = new mongoose.Schema({
 
 }, { timestamps:true, versionKey:false});
 
-const Product = new mongoose.model('product', productSchema);
+const Parfumery = new mongoose.model('product', parfumerySchema);
 
-module.exports = Product;
+module.exports = Parfumery;

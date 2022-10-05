@@ -6,7 +6,7 @@ const loader = require('./loaders');
 var cors = require('cors')
 loader();
 
-const {UserRouter, ParfumeryRouter} = require('./routes');
+const {UserRouter, ParfumeryRouter, ProductRouter, MakeUpRouter} = require('./routes');
 
 //Use CORS For Request and Respond Data From Node to Vue
 app.use(cors())
@@ -15,7 +15,9 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('uploads'));
 
 
-app.use('/', ParfumeryRouter);
+app.use('/', ProductRouter);
+app.use('/perfumes', ParfumeryRouter);
+app.use('/makeup', MakeUpRouter);
 app.use('/users', UserRouter);
 
 app.listen(process.env.APP_PORT, ()=>{

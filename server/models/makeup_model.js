@@ -30,6 +30,6 @@ const makeupSchema = new mongoose.Schema({
 
 }, { timestamps:true, versionKey:false});
 
-const Makeup = new mongoose.model('makeup', parfumerySchema, 'makeup');
+const Makeup = new mongoose.model('makeup', makeupSchema, 'makeup');
 
 module.exports = Makeup;

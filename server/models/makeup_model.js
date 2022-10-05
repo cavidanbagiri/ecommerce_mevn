@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 
-const parfumerySchema = new mongoose.Schema({
+const makeupSchema = new mongoose.Schema({
 
     brand : String,
     catalog : String,
@@ -28,8 +28,8 @@ const parfumerySchema = new mongoose.Schema({
     },
     file : String
 
-}, { timestamps:true, versionKey:false}, {collection: 'parfumery'});
+}, { timestamps:true, versionKey:false});
 
-const Parfumery = new mongoose.model('parfumery', parfumerySchema, 'parfumery');
+const Makeup = new mongoose.model('makeup', parfumerySchema, 'makeup');
 
-module.exports = Parfumery;
+module.exports = Makeup;

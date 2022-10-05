@@ -9,9 +9,15 @@ const loadProduct = () =>{
     return products;
 }
 
-//Create Product Post
-const createParfumeryPost = async (parfumery_data) => {
-    const newParfumery = new Parfumery(parfumery_data)
+//Create Product->Parfumery Post
+const createParfumeryPost = async (product_data) => {
+    const newParfumery = new Parfumery(product_data)
+    return newParfumery.save();
+}
+
+//Create Product->Makeup Post
+const createMakeupPost = async (product_data) => {
+    const newParfumery = new MakeUp(product_data)
     return newParfumery.save();
 }
 
@@ -26,6 +32,7 @@ module.exports = {
 
     loadProduct,
     createParfumeryPost,
-    getProductItemById
+    createMakeupPost,
+    getProductItemById,
 
 }

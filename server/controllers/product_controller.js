@@ -1,5 +1,5 @@
 
-const {loadProduct, createParfumeryPost, getProductItemById} = require('../services/product_service');
+const {loadProduct, createParfumeryPost, createMakeupPost, getProductItemById} = require('../services/product_service');
 
 //Load All Product Data
 const getIndex = (req, res)=>{
@@ -13,14 +13,25 @@ const getIndex = (req, res)=>{
 const getCreateProduct = (req, res) =>{
     res.json({create_Product_Get:'Create Product get Page'});
 }
-//Post Create Product Page
 const postCreateProduct = (req, res) => {
     req.body.file = req.file.originalname;
-    createParfumeryPost(req.body).then((respond)=>{
-        res.json({creatingProduct_Post : respond});
-    }).catch((err)=>{
-        res.json({creatingProductError_Post : err});
-    })
+    //If Catalog === Perfume this will work
+    if(req.body.catalog === 'Perfume'){
+        createParfumeryPost(req.body).then((respond)=>{
+            res.json({creatingProduct_Post : respond});
+        }).catch((err)=>{
+            res.json({creatingProductError_Post : err});
+        })
+    }
+    //Catalog === Makeup this will work
+    else if(req.body.catalog === 'Makeup'){
+        createMakeupPost(req.body).then((respond)=>{
+            res.json({creatingProduct_Post : respond});
+        }).catch((err)=>{
+            res.json({creatingProductError_Post : err});
+        })
+    }
+    
 }
 //Get One Product Item
 const getParfumeryItem = (req, res) => {

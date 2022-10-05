@@ -1,5 +1,5 @@
 
-const {loadDataForIndex, createParfumeryPost, loadParfumeries, getParfumeryItemById} = require('../services/product_service');
+const {loadDataForIndex, createParfumeryPost, loadParfumeries, getParfumeryItemById} = require('../services/parfumery_service');
 
 //Load Data For Index page
 const getIndex = (req, res) => {
@@ -44,7 +44,7 @@ const getParfumeryItem = (req, res) => {
 module.exports = {
     getIndex,
     postCreateParfumery,
-    getCreateProduct: getCreateParfumery,
+    getCreateParfumery,
     getPerfumes,
     getParfumeryItem
 }

@@ -1,5 +1,5 @@
 
-const Parfumery = require('../models/product_model');
+const Parfumery = require('../models/parfumery_model');
 
 //Load Product For Showing Index Page
 const loadDataForIndex = async () => {

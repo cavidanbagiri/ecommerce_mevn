@@ -1,7 +1,7 @@
 
 const Product = require('../models/product_model');
 const Parfumery = require('../models/parfumery_model');
-const MakeUp = require('../models/makeup_model');
+const Makeup = require('../models/makeup_model');
 
 //Load All Products
 const loadProduct = () =>{
@@ -11,15 +11,16 @@ const loadProduct = () =>{
 
 //Create Product->Parfumery Post
 const createParfumeryPost = async (product_data) => {
-    const newParfumery = new Parfumery(product_data)
+    const newParfumery = await new Parfumery(product_data)
     return newParfumery.save();
 }
 
-//Create Product->Makeup Post
+//Create Product->Parfumery Post
 const createMakeupPost = async (product_data) => {
-    const newParfumery = new MakeUp(product_data)
+    const newParfumery = await new Makeup(product_data)
     return newParfumery.save();
 }
+
 
 //Get One Item With Id
 const getProductItemById = async(id)=>{

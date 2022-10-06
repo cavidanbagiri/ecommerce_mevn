@@ -15,17 +15,20 @@ const getCreateProduct = (req, res) =>{
 }
 const postCreateProduct = (req, res) => {
     req.body.file = req.file.originalname;
-    //If Catalog === Perfume this will work
-    if(req.body.catalog === 'Perfume'){
-        createParfumeryPost(req.body).then((respond)=>{
+    
+    console.log('category name is : ', req.body.catalog);
+    //Catalog === Makeup this will work
+    if(req.body.catalog === 'Makeup'){
+        console.log('neter make up');
+        createMakeupPost(req.body).then((respond)=>{
             res.json({creatingProduct_Post : respond});
         }).catch((err)=>{
             res.json({creatingProductError_Post : err});
         })
     }
-    //Catalog === Makeup this will work
-    else if(req.body.catalog === 'Makeup'){
-        createMakeupPost(req.body).then((respond)=>{
+    //If Catalog === Perfume this will work
+    else if(req.body.catalog === 'Perfume'){
+        createParfumeryPost(req.body).then((respond)=>{
             res.json({creatingProduct_Post : respond});
         }).catch((err)=>{
             res.json({creatingProductError_Post : err});

@@ -1,7 +1,6 @@
 
 <template>
     <div class="col-md-8">
-        <span class="text-4xl fw-bold ps-4" >Fragrances</span>
         <div class="row flex justify-content-between p-1 m-0">
         <div v-for="(product, index) in products" :key="index" class="card border-none border-bottom mx-2" style="width: 14rem;">
             <span>here</span>

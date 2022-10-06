@@ -16,11 +16,12 @@
                         <span class="text-2xl fw-bold">Parfumery</span>
                     </router-link>
                     </div>
-                <div class=" col-md-3 m-1 bg-inherit border shadow-sm"
-                    style="height:300px; background-color: rgba(240,240,240,255);">
-                    <img class="img-fluid" src="../../assets/catalog/makeup.png" alt=""
-                        style="height:250px; background-color: rgba(240,240,240,255);" />
-                    <span class="text-2xl fw-bold">Makeup</span>
+                <div class=" col-md-3 m-1 bg-inherit border shadow-sm" style="height:300px; background-color: rgba(240,240,240,255);">
+                    <router-link :to="{path:'Makeup'}">
+                        <img class="img-fluid" src="../../assets/catalog/makeup.png" alt=""
+                            style="height:250px; background-color: rgba(240,240,240,255);" />
+                        <span class="text-2xl fw-bold">Makeup</span>
+                    </router-link>
                 </div>
                 <div class=" col-md-3 m-1 bg-inherit border shadow-sm"
                     style="height:300px; background-color: rgba(240,240,240,255);">

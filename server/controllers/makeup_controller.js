@@ -3,7 +3,11 @@ const {loadMakeups, createMakeUpPost} = require('../services/makeup_service');
 
 const getMakeups = (req, res)=>{
 
-    res.json({'make up val':'some'});
+    loadMakeups().then((respond)=>{
+        res.send(respond)
+    }).catch((err)=>{
+        console.log('Error Happen inside of makeup index controller ', err);
+    })
 
 }
 

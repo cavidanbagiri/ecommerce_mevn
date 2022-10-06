@@ -12,14 +12,17 @@ const loadProduct = () =>{
 //Create Product->Parfumery Post
 const createParfumeryPost = async (product_data) => {
     const newParfumery = await new Parfumery(product_data)
-    // try{
-    //     Product.update(
-    //         {$push:{makeups:newParfumery}}
-    //     );
-    // }
-    // catch(e){
-    //     console.log('e happen : ',e);
-    // }
+    console.log('data is ',product_data);
+    try{
+       const some = new Product ({
+        catalog:product_data.catalog,
+        refid:newParfumery
+       });
+       some.save();
+    }
+    catch(e){
+        console.log('e happen : ',e);
+    }
     return newParfumery.save();
 }
 
@@ -31,8 +34,14 @@ const createMakeupPost = async (product_data) => {
 
 
 //Get One Item With Id
-const getProductItemById = async(id)=>{
+const getProductItemByIdFromParfumery = async(id)=>{
     const parfumery = await Parfumery.findById(id);
+    return parfumery;
+}
+
+//Get One Item With Id
+const getProductItemByIdFromMakeup = async(id)=>{
+    const parfumery = await Makeup.findById(id);
     return parfumery;
 }
 
@@ -42,6 +51,6 @@ module.exports = {
     loadProduct,
     createParfumeryPost,
     createMakeupPost,
-    getProductItemById,
-
+    getProductItemByIdFromParfumery,
+    getProductItemByIdFromMakeup
 }

@@ -1,5 +1,5 @@
 
-const {loadProduct, createParfumeryPost, createMakeupPost, getProductItemById} = require('../services/product_service');
+const {loadProduct, createParfumeryPost, createMakeupPost, getProductItemByIdFromMakeup, getProductItemByIdFromParfumery} = require('../services/product_service');
 
 //Load All Product Data
 const getIndex = (req, res)=>{
@@ -36,12 +36,25 @@ const postCreateProduct = (req, res) => {
 }
 //Get One Product Item
 const getParfumeryItem = (req, res) => {
+    const catalog_name = req?.query?.catalog;
+    console.log('catalog name : ',catalog_name);
     const id = req.params.id;
-    getProductItemById(id).then((respond)=>{
-        res.send(respond);
-    }).catch((err)=>{
-        res.json({categoryindexerror : err});
-    })
+    if(catalog_name === "Perfume"){
+        console.log('Work For Perfume');
+        getProductItemByIdFromParfumery(id).then((respond)=>{
+            res.send(respond);
+        }).catch((err)=>{
+            res.json({categoryindexerror : err});
+        })
+    }   
+    else if(catalog_name === "Makeup"){
+        console.log('work for makeup');
+        getProductItemByIdFromMakeup(id).then((respond)=>{
+            res.send(respond);
+        }).catch((err)=>{
+            res.json({categoryindexerror : err});
+        })
+    }
 }
 
 module.exports = {

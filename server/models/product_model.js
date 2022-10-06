@@ -4,12 +4,10 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
 
-    parfumeries: [{
-        type: Schema.Types.ObjectId, ref:"parfumery"
-    }],
-    makeups: [{
-        type: Schema.Types.ObjectId, ref:"makeup"
-    }]
+    catalog: String,
+    refid: {
+        type: Schema.Types.ObjectId
+    }
 
 })
 

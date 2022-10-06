@@ -1,0 +1,25 @@
+<div class="row container border flex justify-content-center">
+
+    <form @submit="addProduct" enctype="multipart/form-data">
+        <input class="border m-1" type="text" v-model="product.brand" placeholder="brand">
+        <input class="border m-1" type="text" v-model="product.name" placeholder="name">
+        <input class="border m-1" type="text" v-model="product.price" placeholder="price">
+        <input class="border m-1" type="text" v-model="product.for" placeholder="for">
+    
+        <textarea class="border m-1" v-model="product.decription" placeholder="Description"/>
+        <textarea class="border m-1" v-model="product.characteristic" placeholder="Characteristic"/>
+        <textarea class="border m-1" v-model="product.information" placeholder="Information"/>
+        <select v-model="sex_selected">
+            <option v-for="option in sex_options" :value="option">
+                {{option}}
+            </option>
+        </select>
+        <input type="file" ref="selected_file" @change="fileSelect">
+        <input class="btn btn-danger text-dark" @click="addProduct" value="Add Product">
+    </form>
+    
+    </div>
+    
+
+
+

@@ -1,13 +1,15 @@
-
 const mongoose = require('mongoose');
-
-
 const makeupSchema = new mongoose.Schema({
 
     brand : String,
     catalog : String,
     name : String,
-    raiting : String,
+    for : String,
+    color : String,
+    raiting : {
+        type: Number,
+        default: 5
+    },
     price : String,
     sex : String,
     decription : {

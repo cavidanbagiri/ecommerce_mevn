@@ -10,6 +10,7 @@ const parfumerySchema = new mongoose.Schema({
     raiting : String,
     price : String,
     sex : String,
+    for : String,
     decription : {
         type: String,
         default: ''

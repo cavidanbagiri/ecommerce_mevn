@@ -15,8 +15,6 @@ const getCreateProduct = (req, res) =>{
 }
 const postCreateProduct = (req, res) => {
     req.body.file = req.file.originalname;
-    
-    console.log('category name is : ', req.body.catalog);
     //Catalog === Makeup this will work
     if(req.body.catalog === 'Makeup'){
         console.log('neter make up');

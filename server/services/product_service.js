@@ -12,6 +12,14 @@ const loadProduct = () =>{
 //Create Product->Parfumery Post
 const createParfumeryPost = async (product_data) => {
     const newParfumery = await new Parfumery(product_data)
+    // try{
+    //     Product.update(
+    //         {$push:{makeups:newParfumery}}
+    //     );
+    // }
+    // catch(e){
+    //     console.log('e happen : ',e);
+    // }
     return newParfumery.save();
 }
 

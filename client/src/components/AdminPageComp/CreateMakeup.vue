@@ -77,13 +77,12 @@
     
     <script setup>
     
-    import axios from 'axios';
     import { ref, reactive } from 'vue';
-    
+    import { useStore } from 'vuex';
     
     const sex_options = ref(['Man', 'Woman', 'Child'])
     const sex_selected = ref('Man')
-    
+    const store = useStore();
     let file = ref(null);
     let selected_file = ref(null);
     const fileSelect = () => {
@@ -119,11 +118,7 @@
         formData.append('description', product.decription);
         formData.append('characteristic', product.characteristic);
         formData.append('information', product.information);    
-        axios.post("http://localhost:3000/create", formData).then(res => {
-            console.log('clicked ',res);
-        }).catch(err => {
-            console.log(err);
-        });
+        store.dispatch('CREATE_DATA', formData);
     }
     
     

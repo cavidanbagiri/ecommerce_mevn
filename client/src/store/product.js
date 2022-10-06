@@ -113,44 +113,16 @@ export default {
                 }).catch((err) => {
                     console.log('Error Happen inside Of Perfume get Page : ', err);
                 })
+        },
+        //Create Product
+        async CREATE_DATA({ state }, formData) {
+            axios.post("http://localhost:3000/create", formData).then(res => {
+                console.log('clicked ', res);
+            }).catch(err => {
+                console.log(err);
+            });
         }
+
     },
 }
 
-
-//After Checked Filtered items, this function will work
-        // SETFILTEREDPRODUCTS(state, filtered_brands){
-        //     if(filtered_brands.value.length>0){
-        //         let temp = [];
-        //         for(let i in filtered_brands.value){
-        //             for(let j in state.all_perfumes){
-        //                 if(filtered_brands.value[i] === state.all_perfumes[j].brand){
-        //                     // console.log('checked is ',filtered_brands.value[i]);
-        //                     temp.push(state.all_perfumes[j]);
-        //                 }
-        //             }
-        //         }
-        //         state.filtered_perfumes = temp;
-        //     }
-        //     else{
-        //         state.filtered_perfumes = []
-        //     }
-
-        // },
-        // //After CheckedSex, This Function WIll Work Temporaly
-        // SETFILTEREDPRODUCTSFORSEXFILTER(state, filtered_sex){
-        //     console.log('sex checked work');
-        //     let temp = [];
-        //     for(let [key, value] of Object.entries(filtered_sex)){
-        //         if(value){
-        //             console.log('inside of if value : ', key);
-        //             for(let i in state.all_perfumes){
-        //                 if(state.all_perfumes[i].sex === key){
-        //                     temp.push(state.all_perfumes[i]);
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     state.filtered_sex = temp;
-        //     console.log(state.filtered_sex);
-        // }

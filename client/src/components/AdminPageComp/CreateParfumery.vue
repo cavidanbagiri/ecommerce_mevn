@@ -77,10 +77,10 @@
 
 <script setup>
 
-import axios from 'axios';
 import { ref, reactive } from 'vue';
+import { useStore } from 'vuex';
 
-
+const store = useStore();
 const sex_options = ref(['Man', 'Woman', 'Child'])
 const sex_selected = ref('Man')
 
@@ -89,7 +89,6 @@ let selected_file = ref(null);
 const fileSelect = () => {
     file.value = selected_file.value.files[0];
 }
-
 
 //Create product reactive
 const product = reactive({
@@ -118,11 +117,7 @@ const addProduct = async () => {
     formData.append('description', product.decription);
     formData.append('characteristic', product.characteristic);
     formData.append('information', product.information);    
-    axios.post("http://localhost:3000/create", formData).then(res => {
-        console.log('clicked ',res);
-    }).catch(err => {
-        console.log(err);
-    });
+    store.dispatch('CREATE_DATA', formData);
 }
 
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 export default {
     state: {
         //Load All Perfumes and Assign
-        all_perfumes: [],
+        all_products: [],
         //After Loading All Perfumes, Load All Brands To all_marks as Set
         all_brands: [],
         //Filtered Products -> After Filter Checkbox selected, This States will be change
@@ -18,22 +18,21 @@ export default {
     },
     getters: {
         //Get All Perfumes
-        GETALLPERFUMES: (state) => state.all_perfumes,
+        GETALLPRODUCTS: (state) => state.all_products,
         GETALLMARKS: (state) => state.all_brands,
         GETFILTEREDPERFUMES: (state) => state.filtered_perfumes,
         GETALLFILETEREDSEX: (state) => state.filtered_sex,
         GETFILTEREDRESULT: (state) => state.filtered_result,
         GETPRODUCTITEM (state) {
-            console.log('from getting : ', state.product_item);
             return state.product_item
         }
     },
     mutations: {
-        //Get Perfumes Data && Set Inside Of all_perfumes
-        SETALLPERFUMES(state, data) {
-            state.all_perfumes = data;
+        //Get Products Data && Set Inside Of all_perfumes
+        SETALLPRODUCTS(state, data) {
+            state.all_products = data;
         },
-        //Get Perfumes Data && Set Marks For Left Side Marks
+        //Get Products Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
             let temp_marks = new Set();
             data.filter((item)=>{
@@ -91,23 +90,20 @@ export default {
         },
     },
     actions: {
-        //Load All Products
-        async LOAD_ALL_PRODUCTS({state}){
-            
-        },
-        //Load All Perfumes 
-        async LOAD_ALL_PERFUMES({ state }) {
-            axios.get('http://localhost:3000/perfumes').
+        //Load Current Products when enter view page
+        async LOAD_ALL_PRODUCTS({ state }, product_catalog) {
+            axios.get('http://localhost:3000/'+product_catalog).
                 then((respond) => {
-                    this.commit('SETALLPERFUMES', respond.data);
+                    this.commit('SETALLPRODUCTS', respond.data);
                     this.commit('SETALLMARKS', respond.data);
                 }).catch((err) => {
                     console.log('Error Happen inside Of Perfume get Page : ', err);
                 })
         },
         //Get One Product By id
-        async LOAD_ONE_DATA({state}, id){
-            await axios.get('http://localhost:3000/product/'+id).
+        async LOAD_ONE_DATA({state}, url){
+            console.log('catalog is from vuex : ', url.catalog,' id is : ', url.id);
+            await axios.get('http://localhost:3000/product/'+url.id+'?catalog='+url.catalog).
                 then(async(respond) => {
                     await this.commit('SETPRODUCTITEM', respond)
                 }).catch((err) => {

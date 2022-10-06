@@ -37,7 +37,7 @@ let current_item = ref(null);
 const file_name = ref('');
 
 onMounted(async ()=>{
-    await store.dispatch('LOAD_ONE_DATA', route.params.id)
+    await store.dispatch('LOAD_ONE_DATA', {id: route.params.id, catalog: route.query.catalog});
     current_item.value = store.getters["GETPRODUCTITEM"];
     file_name.value = 'http://localhost:3000/'+current_item?.value?.file;
     console.log('file name : ', file_name.value, ' current item : ',current_item.value);

@@ -17,7 +17,7 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 onMounted(async()=>{
-    await store.dispatch('LOAD_ALL_PERFUMES');
+    await store.dispatch('LOAD_ALL_PRODUCTS','perfumes');
 })
 
 

@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{name:'ProductItem',params:{id:`${props?.product?._id}`}}">
+    <router-link :to="{name:'ProductItem',params:{id:`${props?.product?._id}`},query:{catalog:`${props?.product?.catalog}`}}">
         <div>
         <img :src="file_name" class="card-img-top mt-5" alt="...">
         <div class="card-body">

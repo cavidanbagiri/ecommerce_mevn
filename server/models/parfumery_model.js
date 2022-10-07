@@ -15,7 +15,7 @@ const parfumerySchema = new mongoose.Schema({
     fragrancescent : String,
     fragrancematerialfeatures : String,
     stock : Boolean,
-    decription : {
+    description : {
         type: String,
         default: ''
     },

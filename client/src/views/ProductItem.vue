@@ -9,6 +9,9 @@
         <!-- Indormation Section -->
         <ProductInformationSection :current_item="current_item"/>
 
+        <!-- Product Description -->
+        <ProductDescriptionSection/>
+
         <!-- Blog Section -->
         <ProductBlogSection/>
 
@@ -28,6 +31,7 @@ import ProductBlogSection from '../layouts/ProductItem/ProductBlogSection.vue';
 import RecomendedSection from '../layouts/ProductItem/RecomendedSection.vue';
 import ProductImagesSectionComp from '../layouts/ProductItem/ProductImagesSectionComp.vue';
 import ProductInformationSection from '../layouts/ProductItem/ProductInformationSection.vue';
+import ProductDescriptionSection from '../layouts/ProductItem/ProductDescriptionSection.vue';
 
 const route = useRoute();
 const store = useStore();

@@ -7,33 +7,28 @@
             <h1 class="text-5xl px-1 py-4" style="font-family: Georgia, serif;">{{current_item?.name}} </h1>
         </div>
 
-        <div class="col-12 shadow-md border-top rounded-lg">
-            <div class="ps-4 pt-5 mt-3">
-                <span class="text-3xl ">{{current_item?.price}} Rub</span>
+        <div class="col-12 shadow-lg border-top rounded-lg">
+            <div class="ps-4 pt-3 mt-3">
+                <span class="text-3xl ">{{current_item?.price}} ₽</span>
                 <s class="text-2xl p-1 text-gray-300">8 000</s>
                 <span class="ms-3 text-xl px-2 fw-bold bg-green-400 text-white">15%</span>
             </div>
-            <div class="ps-4 pt-3 mt-3">
-                <span class="text-md text-black py-5">Lorem Ipsum Dolor Sit Amet</span>
+            <div class="ps-4 pt-3 mt-3" v-if="current_item?.color">
+                <span class="text-md text-black py-5">Color: {{current_item?.color}}</span>
             </div>
             <div class="ps-4 pt-3 mt-2">
-                <span class="text-sm text-gray-400 py-5">Bonus For Buying</span>
+                <span class="text-sm text-gray-400 py-5">Bonus for buying</span>
             </div>
             <div class="ps-4">
                 <i class="fa-solid fa-lg fa-hand-pointer" style="color:blue;"></i><span class="ps-2 fw-bold"
-                    style="color:blue">50</span>
+                    style="color:blue">5</span>
             </div>
-            <div class="border-lg">
+            <div class="border-lg bg-violet-20 pb-2 m-2">
                 <div class="ps-4 pt-3 mt-2">
-                    <span class="text-lg fw-bold text-gray-800 py-5">Information About Product</span>
+                    <span class="text-lg fw-bold text-gray-900 py-5">Call Whatsapp for more information</span>
                 </div>
                 <div class="px-4 pt-1 mt-2">
-                    <span class="text-md text-gray-800 py-5">Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Provident voluptas saepe maiores architecto? Minima dolorum non temporibus delectus
-                        eum corrupti earum. Impedit, quae. Voluptatibus illo explicabo eligendi quasi, laboriosam
-                        quaerat, aspernatur aliquam doloribus aliquid quibusdam obcaecati inventore sint, est
-                        veritatis accusantium ut voluptates! Nemo nesciunt possimus veritatis aperiam fugiat
-                        ex!</span>
+                    <span class="text-md text-gray-800 py-5">{{current_item?.information}}</span>
                 </div>
             </div>
             <div class="ps-4 pt-3 mt-2">

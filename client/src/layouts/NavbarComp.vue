@@ -30,7 +30,12 @@
                             </router-link>
                         </li>
                         <li class="nav-item  flex align-items-center">
-                            <router-link :to="{name:'Home'}"
+                            <router-link :to="{name:'Makeup'}"
+                                class="nav-link active text-stone-300 fw-bold text-md px-2">Makeup
+                            </router-link>
+                        </li>
+                        <li class="nav-item  flex align-items-center">
+                            <router-link :to="{name:'Accessories'}"
                                 class="nav-link active text-stone-300 fw-bold text-md px-2">Accessories
                             </router-link>
                         </li>

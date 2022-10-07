@@ -11,6 +11,10 @@ const parfumerySchema = new mongoose.Schema({
     price : String,
     sex : String,
     for : String,
+    fragranceformat : String,
+    fragrancescent : String,
+    fragrancematerialfeatures : String,
+    stock : Boolean,
     decription : {
         type: String,
         default: ''

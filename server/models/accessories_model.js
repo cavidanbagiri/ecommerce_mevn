@@ -17,6 +17,7 @@ const accessoriesSchema = new mongoose.Schema({
     linningdescription: String,
     walletcompartment: String,
     pocketdescription: String,
+    stock : Boolean,
     decription: { type: String, default: '' },
     characteristic: { type: String, default: '' },
     information: { type: String, default: '' },

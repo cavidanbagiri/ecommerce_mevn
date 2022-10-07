@@ -6,12 +6,12 @@ const makeupSchema = new mongoose.Schema({
     name : String,
     for : String,
     color : String,
-    raiting : {
-        type: Number,
-        default: 5
-    },
+    raiting : { type: Number, default: 5 },
     price : String,
     sex : String,
+    formulation : String,
+    department : String,
+    stock : Boolean,
     decription : {
         type: String,
         default: ''

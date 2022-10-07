@@ -1,5 +1,5 @@
 
-const {loadMakeups, createMakeUpPost} = require('../services/makeup_service');
+const {loadMakeups} = require('../services/makeup_service');
 
 const getMakeups = (req, res)=>{
 

@@ -1,5 +1,11 @@
 
-const {loadProduct, createParfumeryPost, createMakeupPost, getProductItemByIdFromMakeup, getProductItemByIdFromParfumery} = require('../services/product_service');
+const {loadProduct,
+        createParfumeryPost,
+        createMakeupPost, 
+        createAccessoriesPost,
+        getProductItemByIdFromMakeup, 
+        getProductItemByIdFromParfumery,    
+    } = require('../services/product_service');
 
 //Load All Product Data
 const getIndex = (req, res)=>{
@@ -27,6 +33,14 @@ const postCreateProduct = (req, res) => {
     //If Catalog === Perfume this will work
     else if(req.body.catalog === 'Perfume'){
         createParfumeryPost(req.body).then((respond)=>{
+            res.json({creatingProduct_Post : respond});
+        }).catch((err)=>{
+            res.json({creatingProductError_Post : err});
+        })
+    }
+    //If Vatalog === Accessories accessories create post will work
+    else if(req.body.catalog === 'Accessories'){
+        createAccessoriesPost(req.body).then((respond)=>{
             res.json({creatingProduct_Post : respond});
         }).catch((err)=>{
             res.json({creatingProductError_Post : err});

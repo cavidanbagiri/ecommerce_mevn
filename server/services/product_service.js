@@ -2,6 +2,7 @@
 const Product = require('../models/product_model');
 const Parfumery = require('../models/parfumery_model');
 const Makeup = require('../models/makeup_model');
+const Accessories = require('../models/accessories_model');
 
 //Load All Products
 const loadProduct = () =>{
@@ -42,6 +43,22 @@ const createMakeupPost = async (product_data) => {
     return newProduct.save();
 }
 
+//Create Product->Parfumery Post
+const createAccessoriesPost = async (product_data) => {
+    const newProduct = await new Accessories(product_data)
+    try{
+        const some = new Product ({
+         catalog:product_data.catalog,
+         refid:newProduct
+        });
+        some.save();
+     }
+     catch(e){
+         console.log('e happen : ',e);
+     }
+    return newProduct.save();
+}
+
 
 //Get One Item With Id
 const getProductItemByIdFromParfumery = async(id)=>{
@@ -62,5 +79,6 @@ module.exports = {
     createParfumeryPost,
     createMakeupPost,
     getProductItemByIdFromParfumery,
-    getProductItemByIdFromMakeup
+    getProductItemByIdFromMakeup,
+    createAccessoriesPost
 }

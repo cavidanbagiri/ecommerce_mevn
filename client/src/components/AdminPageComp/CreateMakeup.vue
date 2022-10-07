@@ -35,6 +35,24 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required="">
                 </div>
+
+
+                <!-- Product Formulation-->
+                <div>
+                    <label for="formulation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Formulation</label>
+                    <input type="tel" id="formulation" v-model="product.formulation" placeholder="formulation"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required="">
+                </div>
+
+                <!-- Product Department-->
+                <div>
+                    <label for="department" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Department</label>
+                    <input type="tel" id="department" v-model="product.department" placeholder="department"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required="">
+                </div>
+
                 <!-- Product Description -->
                 <div>
                     <label for="description" class="form-label inline-block mb-2 text-gray-700"> Product Informetion</label>
@@ -97,6 +115,9 @@
         name: null,
         price: null,
         for: null,
+        formulation : null,
+        department : null,
+        stock : true,
         decription: null,
         characteristic: null,
         information: null,
@@ -115,6 +136,9 @@
         formData.append('sex', product.sex);
         formData.append('color', product.color);
         formData.append('for', product.for);
+        formData.append('formulation', product.formulation);
+        formData.append('department', product.department);
+        formData.append('stock', product.stock);
         formData.append('description', product.decription);
         formData.append('characteristic', product.characteristic);
         formData.append('information', product.information);    

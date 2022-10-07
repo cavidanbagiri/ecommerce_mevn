@@ -35,12 +35,37 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required="">
             </div>
+
+            <!-- Product FragranceFormat-->
+            <div>
+                <label for="fragranceformat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fragrance Format</label>
+                <input type="tel" id="fragranceformat" v-model="product.fragranceformat" placeholder="fragranceformat"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
+            </div>
+
+            <!-- Product FragranceScent-->
+            <div>
+                <label for="fragrancescent" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fragrance Scent</label>
+                <input type="tel" id="fragrancescent" v-model="product.fragrancescent" placeholder="fragrancescent"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
+            </div>
+
+            <!-- Product FragranceMaterialFeatures-->
+            <div>
+                <label for="for" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fragrance Material Features</label>
+                <input type="tel" id="fragrancematerialfeatures" v-model="product.fragrancematerialfeatures" placeholder="fragrancematerialfeatures"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
+            </div>
+
             <!-- Product Description -->
             <div>
                 <label for="description" class="form-label inline-block mb-2 text-gray-700"> Product Informetion</label>
                 <textarea  class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="description" rows="3" v-model="product.decription" placeholder="Description"></textarea>
+                id="description" rows="3" v-model="product.description" placeholder="Description"></textarea>
             </div>
             <!-- Product Charasteristic-->
             <div>
@@ -96,11 +121,15 @@ const product = reactive({
     catalog: 'Perfume',
     name: null,
     price: null,
+    sex: sex_selected,
     for: null,
-    decription: null,
+    fragranceformat : null,
+    fragrancescent : null,
+    fragrancematerialfeatures : null,
+    stock : true,
+    description: null,
     characteristic: null,
     information: null,
-    sex: sex_selected,
 });
 
 const addProduct = async () => {
@@ -114,7 +143,11 @@ const addProduct = async () => {
     formData.append('price', product.price);
     formData.append('sex', product.sex);
     formData.append('for', product.for);
-    formData.append('description', product.decription);
+    formData.append('fragranceformat', product.fragranceformat);
+    formData.append('fragrancescent', product.fragrancescent);
+    formData.append('fragrancematerialfeatures', product.fragrancematerialfeatures);
+    formData.append('stock', product.stock);
+    formData.append('description', product.description);
     formData.append('characteristic', product.characteristic);
     formData.append('information', product.information);    
     store.dispatch('CREATE_DATA', formData);

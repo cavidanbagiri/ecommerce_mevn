@@ -2,6 +2,9 @@
 
     <div class="container">
         <p>Accessories</p>
+
+        
+
         <form @submit="addProduct" enctype="multipart/form-data">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <!-- Product Brand-->

@@ -8,6 +8,8 @@
             </option>
         </select>
 
+        <AccessoriesPage/>
+
         <component :is="tabs[category_selected]"></component>
 
     </div>
@@ -18,9 +20,10 @@
 import { ref, reactive } from 'vue';
 import Perfume from '../components/AdminPageComp/CreateParfumery.vue';
 import Makeup from '../components/AdminPageComp/CreateMakeup.vue';
+import Accessories from '../components/AdminPageComp/CreateAccessories.vue';
 
 const category_selected = ref('Perfume')
 const category_options = ref(['Perfume', 'Makeup', 'Accessories', 'Skin Care', 'Hair Care']);
-const tabs = { Perfume, Makeup }
+const tabs = { Perfume, Makeup, Accessories}
 
 </script>

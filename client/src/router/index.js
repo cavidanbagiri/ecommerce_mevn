@@ -7,7 +7,7 @@ import Admin from '../views/AdminPage.vue';
 import Parfumery from '../views/ParfumeryPage.vue';
 import ProductItem from '../views/ProductItem.vue';
 import Makeup from '../views/MakeupPage.vue';
-import Accessories from '../views/Accessories.vue';
+import Accessories from '../views/AccessoriesPage.vue';
 
 const routes = [
 

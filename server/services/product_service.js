@@ -72,6 +72,12 @@ const getProductItemByIdFromMakeup = async(id)=>{
     return makeup;
 }
 
+//Get One Item With Id
+const getProductItemByIdFromAccessories = async(id)=>{
+    const makeup = await Accessories.findById(id);
+    return makeup;
+}
+
 
 module.exports = {
 
@@ -80,5 +86,6 @@ module.exports = {
     createMakeupPost,
     getProductItemByIdFromParfumery,
     getProductItemByIdFromMakeup,
-    createAccessoriesPost
+    createAccessoriesPost,
+    getProductItemByIdFromAccessories
 }

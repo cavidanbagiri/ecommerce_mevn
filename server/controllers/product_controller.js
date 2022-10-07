@@ -5,6 +5,7 @@ const {loadProduct,
         createAccessoriesPost,
         getProductItemByIdFromMakeup, 
         getProductItemByIdFromParfumery,    
+        getProductItemByIdFromAccessories
     } = require('../services/product_service');
 
 //Load All Product Data
@@ -64,6 +65,14 @@ const getParfumeryItem = (req, res) => {
     else if(catalog_name === "Makeup"){
         console.log('work for makeup');
         getProductItemByIdFromMakeup(id).then((respond)=>{
+            res.send(respond);
+        }).catch((err)=>{
+            res.json({categoryindexerror : err});
+        })
+    }
+    else if(catalog_name === "Accessories"){
+        console.log('work for makeup');
+        getProductItemByIdFromAccessories(id).then((respond)=>{
             res.send(respond);
         }).catch((err)=>{
             res.json({categoryindexerror : err});

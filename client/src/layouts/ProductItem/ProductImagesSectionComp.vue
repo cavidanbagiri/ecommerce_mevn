@@ -13,7 +13,7 @@
                 <div class="my-2 mx-1 shadow-md bg-danger "> <img
                         src="../../assets/parfume_images/woman_perfumes/CalvinKlein_Women.png" alt=""> </div>
             </div>
-            <div class="col-8 my-2 ">
+            <div class="col-8 my-2">
                 <img class="img-fluid" :src="file_name" alt="" style="width:100%; height:80%">
             </div>
         </div>

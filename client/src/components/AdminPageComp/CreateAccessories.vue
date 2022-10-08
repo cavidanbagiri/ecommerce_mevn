@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div class="container mb-5">
         <p>Accessories</p>
 
         
@@ -24,12 +24,33 @@
                         required="">
                 </div>
                 <!-- Product Price-->
-                <div>
-                    <label for="price"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price</label>
-                    <input type="text" id="price" v-model="product.price" placeholder="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required="">
+                <div class="row">
+                    <!-- Actual Price -->
+                    <div class="col-sm-4">
+                        <label for="price"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Actual Price</label>
+                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                    </div>
+                    <!-- Percent Price -->
+                    <div class="col-sm-4">
+                        <label for="price"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Percent
+                            Price</label>
+                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                    </div>
+                    <!-- Without Percent Price -->
+                    <div class="col-sm-4">
+                        <label for="price"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Without Percent
+                            Price</label>
+                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                    </div>
                 </div>
                 <!-- Product For-->
                 <div>
@@ -96,7 +117,16 @@
                         required="">
                 </div>
 
-
+                <!-- Sex Option -->
+                <div>
+                    <label for="sex" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Sex</label>
+                    <select id="sex" v-model="sex_selected" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option v-for="option in sex_options" :value="option">
+                            {{option}}
+                        </option>
+                    </select>
+                </div>
 
                 <!-- Product Description -->
                 <div>
@@ -120,14 +150,6 @@
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="information" rows="3" v-model="product.information" placeholder="Information"></textarea>
             </div>
-            <!-- Sex Option -->
-            <label for="sex" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Sex</label>
-            <select id="sex" v-model="sex_selected" 
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option v-for="option in sex_options" :value="option">
-                    {{option}}
-                </option>
-            </select>
             <!-- File Selection -->
             <input type="file" ref="selected_file" @change="fileSelect">
             <!-- Add Image -->

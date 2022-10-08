@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
 
     catalog: String,
+    brand: String,
+    name: String,
     refid: {
         type: Schema.Types.ObjectId
     }

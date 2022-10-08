@@ -16,8 +16,10 @@ const createParfumeryPost = async (product_data) => {
     console.log('data is ',product_data);
     try{
        const some = new Product ({
-        catalog:product_data.catalog,
-        refid:newProduct
+            catalog:product_data.catalog,
+            brand:product_data.brand,
+            name:product_data.name,
+            refid:newProduct
        });
        some.save();
     }
@@ -32,9 +34,11 @@ const createMakeupPost = async (product_data) => {
     const newProduct = await new Makeup(product_data)
     try{
         const some = new Product ({
-         catalog:product_data.catalog,
-         refid:newProduct
-        });
+            catalog:product_data.catalog,
+            brand:product_data.brand,
+            name:product_data.name,
+             refid:newProduct
+            });
         some.save();
      }
      catch(e){
@@ -48,7 +52,9 @@ const createAccessoriesPost = async (product_data) => {
     const newProduct = await new Accessories(product_data)
     try{
         const some = new Product ({
-         catalog:product_data.catalog,
+            catalog:product_data.catalog,
+            brand:product_data.brand,
+            name:product_data.name,
          refid:newProduct
         });
         some.save();

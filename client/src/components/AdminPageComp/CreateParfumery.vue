@@ -152,7 +152,9 @@ const product = reactive({
     brand: null,
     catalog: 'Perfume',
     name: null,
-    price: null,
+    actualprice: null,
+    percentprice: nul,
+    withoutpercentprice: null,
     sex: sex_selected,
     for: null,
     fragranceformat: null,
@@ -172,7 +174,9 @@ const addProduct = async () => {
     formData.append('catalog', product.catalog);
     formData.append('name', product.name);
     formData.append('raiting', product.raiting);
-    formData.append('price', product.price);
+    formData.append('actualprice', product.actualprice);
+    formData.append('percentprice', product.percentprice);
+    formData.append('withoutpercentprice', product.withoutpercentprice);
     formData.append('sex', product.sex);
     formData.append('for', product.for);
     formData.append('fragranceformat', product.fragranceformat);

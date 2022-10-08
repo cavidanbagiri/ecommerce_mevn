@@ -137,7 +137,9 @@
         brand: null,
         catalog: 'Makeup',
         name: null,
-        price: null,
+        actualprice: null,
+        percentprice: nul,
+        withoutpercentprice: null,
         for: null,
         formulation : null,
         department : null,
@@ -156,7 +158,9 @@
         formData.append('brand', product.brand);
         formData.append('catalog', product.catalog);
         formData.append('name', product.name);
-        formData.append('price', product.price);
+        formData.append('actualprice', product.actualprice);
+        formData.append('percentprice', product.percentprice);
+        formData.append('withoutpercentprice', product.withoutpercentprice);
         formData.append('sex', product.sex);
         formData.append('color', product.color);
         formData.append('for', product.for);

@@ -205,7 +205,9 @@
         formData.append('brand', product.brand);
         formData.append('catalog', product.catalog);
         formData.append('name', product.name);
-        formData.append('price', product.price);
+        formData.append('actualprice', product.actualprice);
+        formData.append('percentprice', product.percentprice);
+        formData.append('withoutpercentprice', product.withoutpercentprice);
         formData.append('sex', product.sex);
         formData.append('material', product.material);
         formData.append('style', product.style);

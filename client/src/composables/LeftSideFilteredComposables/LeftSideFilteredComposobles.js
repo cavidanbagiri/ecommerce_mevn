@@ -17,6 +17,8 @@ export function allFilteredFunction() {
 
     //Get All Brands From Store 
     let brands = computed(() => { return store.getters['GETALLMARKS']; })
+    let departments = computed(() => { return store.getters['GETALLDEPARTMENTS']; })
+    let formulations = computed(() => { return store.getters['GETALLFORMULATIONS']; })
     //Clicked Brands
     let clicked_brands = ref([]);
     //Create Sex Filter Array
@@ -48,9 +50,7 @@ export function allFilteredFunction() {
         all_filtered_items.sex_clicked = sex_clicked;
         store.commit('SETFILTEREDRESULT', all_filtered_items);
     }
-    return {brands, sex_clicked, checkedBrands, unCheckedBrands, checkedSex}
-    // return {brands, all_filtered_items , checkedBrands, unCheckedBrands, checkedSex}
-
+    return {brands, sex_clicked, checkedBrands, departments, formulations, unCheckedBrands, checkedSex}
 
 }
 

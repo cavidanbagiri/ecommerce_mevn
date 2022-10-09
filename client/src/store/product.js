@@ -7,6 +7,12 @@ export default {
         all_products: [],
         //After Loading All Perfumes, Load All Brands To all_marks as Set
         all_brands: [],
+        //About Makeups
+        all_departments : [],
+        all_formulation : [],
+        //About Perfumes
+        //....
+        //About Accessories
         //Filtered Products -> After Filter Checkbox selected, This States will be change
         filtered_perfumes : [],
         //Filtered Products -> After Filter Checkbox Selected, Products Will Filtered For Sex
@@ -20,6 +26,8 @@ export default {
         //Get All Perfumes
         GETALLPRODUCTS: (state) => state.all_products,
         GETALLMARKS: (state) => state.all_brands,
+        GETALLDEPARTMENTS: (state) => state.all_departments,
+        GETALLFORMULATIONS: (state) => state.all_formulation,
         GETFILTEREDPERFUMES: (state) => state.filtered_perfumes,
         GETALLFILETEREDSEX: (state) => state.filtered_sex,
         GETFILTEREDRESULT: (state) => state.filtered_result,
@@ -34,11 +42,20 @@ export default {
         },
         //Get Products Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
-            let temp_marks = new Set();
+            let temp_brands = new Set();
+            let temp_departments = new Set();
+            let temp_formulation = new Set();
             data.filter((item)=>{
-                temp_marks.add(item.brand)
+                temp_brands.add(item.brand)
+                temp_departments.add(item.department)
+                temp_formulation.add(item.formulation)
             })
-            state.all_brands = temp_marks;
+            state.all_brands = temp_brands;
+            state.all_departments = temp_departments;
+            state.all_formulation = temp_formulation;
+            console.log('brands : ',all_brands);
+            console.log('brands : ',all_departments);
+            console.log('brands : ',all_formulation);
         },
         //For Getting One Item
         SETPRODUCTITEM(state, data){

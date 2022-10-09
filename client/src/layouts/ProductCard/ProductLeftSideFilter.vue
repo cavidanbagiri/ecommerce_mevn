@@ -5,7 +5,7 @@
         <div class="my-2"><span class="text-4xl flex p-2 fw-bold rounded-t-lg border-b border-gray-300">Filters</span>
         </div>
         <!-- Filter Sex Section-->
-        <div class="my-2">
+        <!-- <div class="my-2">
             <h3 class="mb-2 mt-3 p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Sex</h3>
             <ul
                 class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -42,15 +42,38 @@
                     </div>
                 </li>
             </ul>
-        </div>
-
-        <hr>
+        </div> 
+        <hr>-->
         <!-- Brand Filter Section Checkbox-->
         <div class="my-2">
             <h3 class="mb-2 mt-3  p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Brands</h3>
             <ul class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li v-for="(brand, index) in brands" :key="index" class="w-full dark:border-gray-600">
                     <ProductLeftSideFilterItem :brand="brand" 
+                    @checkedBrand="checkedBrands" 
+                    @unCheckedBrand="unCheckedBrands"
+                     />
+                </li>
+            </ul>
+        </div>
+        <!-- Department Filter Section Checkbox-->
+        <div class="my-2">
+            <h3 class="mb-2 mt-3  p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Departments</h3>
+            <ul class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <li v-for="(department, index) in departments" :key="index" class="w-full dark:border-gray-600">
+                    <ProductLeftSideFilterItem :brand="department" 
+                    @checkedBrand="checkedBrands" 
+                    @unCheckedBrand="unCheckedBrands"
+                     />
+                </li>
+            </ul>
+        </div>
+        <!-- Formulations Filter Section Checkbox-->
+        <div class="my-2">
+            <h3 class="mb-2 mt-3  p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Formulations</h3>
+            <ul class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <li v-for="(formulation, index) in formulations" :key="index" class="w-full dark:border-gray-600">
+                    <ProductLeftSideFilterItem :brand="formulation" 
                     @checkedBrand="checkedBrands" 
                     @unCheckedBrand="unCheckedBrands"
                      />
@@ -66,7 +89,7 @@ import ProductLeftSideFilterItem from './ProductLeftSideFilterItem.vue';
 
 import { allFilteredFunction } from '../../composables/LeftSideFilteredComposables/LeftSideFilteredComposobles';
 
-let {brands, sex_clicked, checkedBrands, unCheckedBrands, checkedSex } = allFilteredFunction();
+let {brands, sex_clicked, checkedBrands, departments, formulations, unCheckedBrands, checkedSex } = allFilteredFunction();
 
 
 </script>

@@ -1,8 +1,9 @@
 
 <template>
-    <div class="col-md-8">
+    <div class="col-md-10 m-0">
         <div class="row flex justify-content-between p-1 m-0">
-        <div v-for="(product, index) in products" :key="index" class="card border-none border-bottom mx-2" style="width: 14rem;">
+        <div v-for="(product, index) in products" :key="index" class="card border-none mx-1" 
+        style="width: 15rem;">
             <ProductMainSideCardItem :product="product" />
         </div>
     </div>

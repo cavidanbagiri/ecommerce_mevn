@@ -1,17 +1,17 @@
 <template>
-    <div class="col-md-4">
+    <div class="col-md-5">
         <div class="col-12">
             <h1 class="text-5xl px-1 py-2" style="font-family: Georgia, serif;">{{current_item?.brand}}</h1>
         </div>
-        <div class="col-12">
+        <div class="col-12" >
             <h1 class="text-5xl px-1 py-4" style="font-family: Georgia, serif;">{{current_item?.name}} </h1>
         </div>
 
-        <div class="col-12 shadow-lg border-top rounded-lg">
+        <div class="col-10 shadow-lg border-top rounded-lg">
             <div class="ps-4 pt-2 mt-3">
-                <span class="text-3xl ">{{current_item?.price}} ₽</span>
-                <s class="text-2xl p-1 text-gray-300">8 000</s>
-                <span class="ms-3 text-xl px-2 fw-bold bg-green-400 text-white">15%</span>
+                <span class="text-3xl ">{{current_item?.actualprice}} ₽</span>
+                <s class="text-3xl ps-3 text-gray-300">{{current_item?.withoutpercentprice}} ₽</s>
+                <span class="ms-3 text-xl px-2 fw-bold bg-green-400 text-white">{{current_item?.percentprice}}%</span>
             </div>
             <div class="ps-4 pt-2 mt-3" v-if="current_item?.color">
                 <span class="text-sm text-black py-5">Color: {{current_item?.color}}</span>
@@ -56,7 +56,7 @@
                 <i class="fa-sharp fa-solid fa-star" style="color:blue"></i><span class="ps-2 fw-bold"
                     style="color:blue">5</span>
             </div>
-            <div class="border-lg bg-violet-20 pb-2 m-2">
+            <div class="border-lg bg-violet-20 pb-2">
                 <div class="ps-4 pt-2 mt-2">
                     <span class="text-lg fw-bold text-gray-900 py-5">Get Information About Product</span>
                 </div>

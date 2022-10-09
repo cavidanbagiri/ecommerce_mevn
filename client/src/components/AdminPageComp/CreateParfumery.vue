@@ -24,27 +24,27 @@
                 <div class="row">
                     <!-- Actual Price -->
                     <div class="col-sm-4">
-                        <label for="price"
+                        <label for="actualprice"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Actual Price</label>
-                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                        <input type="text" id="actualprice" v-model="product.actualprice" placeholder="actualprice"  @change="definewithoutpercentprice"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required="">
                     </div>
                     <!-- Percent Price -->
                     <div class="col-sm-4">
-                        <label for="price"
+                        <label for="percentprice"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Percent
                             Price</label>
-                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                        <input type="text" id="percentprice" v-model="product.percentprice" placeholder="percentprice" @change="definewithoutpercentprice"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required="">
                     </div>
                     <!-- Without Percent Price -->
                     <div class="col-sm-4">
-                        <label for="price"
+                        <label for="withoutpercentprice"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Without Percent
                             Price</label>
-                        <input type="text" id="price" v-model="product.price" placeholder="price"
+                        <input disabled type="text" id="withoutpercentprice" v-model="product.withoutpercentprice"  placeholder="withoutpercentprice"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required="">
                     </div>
@@ -122,6 +122,10 @@
                     v-model="product.information" placeholder="Information"></textarea>
             </div>
 
+            <pre>
+                {{product}}
+            </pre>
+
             <!-- File Selection -->
             <input type="file" ref="selected_file" @change="fileSelect">
             <!-- Add Image -->
@@ -147,13 +151,18 @@ const fileSelect = () => {
     file.value = selected_file.value.files[0];
 }
 
+let definewithoutpercentprice = () =>{
+    product.withoutpercentprice = parseInt((product.actualprice * product.percentprice / 100)) + parseInt(product.actualprice);
+    console.log('price is : ',product.withoutpercentprice);
+}
+
 //Create product reactive
 const product = reactive({
     brand: null,
     catalog: 'Perfume',
     name: null,
     actualprice: null,
-    percentprice: nul,
+    percentprice: null,
     withoutpercentprice: null,
     sex: sex_selected,
     for: null,

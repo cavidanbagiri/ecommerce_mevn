@@ -1,12 +1,12 @@
 
 <template>
-    <div class="col-md-3 ">
+    <div class="col-md-2 m-0">
         <!-- Filter Text Section -->
-        <div class="my-2"><span class="text-4xl flex pb-2 fw-bold rounded-t-lg border-b border-gray-300">Filters</span>
+        <div class="my-2"><span class="text-4xl flex p-2 fw-bold rounded-t-lg border-b border-gray-300">Filters</span>
         </div>
         <!-- Filter Sex Section-->
         <div class="my-2">
-            <h3 class="mb-2 mt-3 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Sex</h3>
+            <h3 class="mb-2 mt-3 p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Sex</h3>
             <ul
                 class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li class="w-full dark:border-gray-600">
@@ -41,14 +41,13 @@
                             class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-black-300">Child</label>
                     </div>
                 </li>
-                <pre>{{sex_clicked}}</pre>
             </ul>
         </div>
 
         <hr>
         <!-- Brand Filter Section Checkbox-->
         <div class="my-2">
-            <h3 class="mb-2 mt-3 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Brands</h3>
+            <h3 class="mb-2 mt-3  p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Brands</h3>
             <ul class=" text-sm font-medium text-gray-900 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li v-for="(brand, index) in brands" :key="index" class="w-full dark:border-gray-600">
                     <ProductLeftSideFilterItem :brand="brand" 

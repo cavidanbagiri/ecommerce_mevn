@@ -1,11 +1,15 @@
 
 import { useStore } from 'vuex';
 import { computed, ref, reactive } from 'vue';
+import { useRoute } from 'vue-router';
 
-export function allFilteredFunction() {
+
+export function allFilteredFunction(route) {
 
     //Get Store
     const store = useStore();
+
+    
 
     //Get All Filtered Result From Store 
     let brands = computed(() => { return store.getters['GETALLMARKS']; })
@@ -17,18 +21,17 @@ export function allFilteredFunction() {
     let linningdescriptions = computed(() => { return store.getters['GETALLLINNINGDESCRIPTION']; })
     
     let filtered_item = ref([
-        {url:'makeup'}
+        {url:route}
     ]);
     
     
-    //Brands Clicked
+    //Filtered Item Clicked
     const filteredName = (itemname, item) => {
-        
         let temp = {[item]:itemname};
         filtered_item.value.push(temp);
         store.dispatch('LOAD_FILTERED_PRODUCTS',filtered_item.value)
     }
-    //Brands UnClicked
+    //Filetered Item UnClicked
     const unFilteredName = (itemname, item) => {
         let temp = {itemname:itemname,item:item};
         filtered_item.value.s

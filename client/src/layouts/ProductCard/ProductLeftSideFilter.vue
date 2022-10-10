@@ -17,6 +17,8 @@
                 </li>
             </ul>
         </div>
+        
+        <!----------------------------------------------------------------     MakeUp Sides                                            -->
         <!-- Department Filter Section-->
         <div class="my-2">
             <h3 v-if="departments.size>1" class="mb-2 mt-3 p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Departments size </h3>
@@ -41,7 +43,8 @@
                 </div>
             </div>
         </div>
-        
+
+        <!----------------------------------------------------------------    Accessories Sides                                            -->
         <!-- Styles Filter Section Checkbox-->
         <div class="my-2">
             <h3  v-if="styles.size>1"  class="mb-2 mt-3 p-2 text-xl fw-bold font-semibold text-gray-900 dark:text-dark">Styles</h3>
@@ -97,15 +100,23 @@
 <script setup>
 
 import ProductLeftSideFilterItem from './ProductLeftSideFilterItem.vue';
-import {computed} from 'vue';
+import { useRoute } from 'vue-router';
 import { allFilteredFunction } from '../../composables/LeftSideFilteredComposables/LeftSideFilteredComposobles';
 
-let {brands, departments, formulations,  styles, materials,closuretypes, linningdescriptions, 
-     filteredName, unFilteredName,} = allFilteredFunction();
+const route = useRoute();
 
-let departmentss = computed(()=>{
-    console.log('size is : ',departments.value.size);
-    return departments.value.length;
-})
+let current_path = route.path
+
+let {
+    brands,//All Products 
+    departments,//Make Up
+    formulations,//Make Up
+    styles,//Accessories
+    materials,//Accessories
+    closuretypes,//Accessories
+    linningdescriptions,//Accessories
+    filteredName,//All Filtered Clicked
+    unFilteredName//All Filtered Clicked
+} = allFilteredFunction(current_path);
 
 </script>

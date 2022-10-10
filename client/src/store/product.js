@@ -96,7 +96,7 @@ export default {
         },
         //Get Filtered Items
         async LOAD_FILTERED_PRODUCTS({ state },filtered_items) {
-            let url = 'localhost:3000/'+filtered_items[0].url
+            let url = 'localhost:3000'+filtered_items[0].url+'/filters';
             let query = '';
             for(let i in filtered_items){
                 if(i>=1){
@@ -105,7 +105,7 @@ export default {
                             query+='?'+key+'='+value
                         }
                         else{
-                            query+='&&'+key+'='+value
+                            query+='&'+key+'='+value
                         }
                     }
                 }

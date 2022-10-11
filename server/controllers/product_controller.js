@@ -55,7 +55,6 @@ const getParfumeryItem = (req, res) => {
     console.log('catalog name : ',catalog_name);
     const id = req.params.id;
     if(catalog_name === "Perfume"){
-        console.log('Work For Perfume');
         getProductItemByIdFromParfumery(id).then((respond)=>{
             res.send(respond);
         }).catch((err)=>{
@@ -63,7 +62,6 @@ const getParfumeryItem = (req, res) => {
         })
     }   
     else if(catalog_name === "Makeup"){
-        console.log('work for makeup');
         getProductItemByIdFromMakeup(id).then((respond)=>{
             res.send(respond);
         }).catch((err)=>{
@@ -71,7 +69,6 @@ const getParfumeryItem = (req, res) => {
         })
     }
     else if(catalog_name === "Accessories"){
-        console.log('work for makeup');
         getProductItemByIdFromAccessories(id).then((respond)=>{
             res.send(respond);
         }).catch((err)=>{

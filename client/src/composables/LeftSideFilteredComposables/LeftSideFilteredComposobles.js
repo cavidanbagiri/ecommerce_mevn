@@ -27,12 +27,14 @@ export function allFilteredFunction(route) {
     
     //Filtered Item Clicked
     const filteredName = (itemname, item) => {
+        console.log('main filtered name work ', itemname,' ',item);
         let temp = {[item]:itemname};
         filtered_item.value.push(temp);
         store.dispatch('LOAD_FILTERED_PRODUCTS',filtered_item.value)
     }
     //Filetered Item UnClicked
     const unFilteredName = (itemname, item) => {
+        console.log('main unfiltered name work ', itemname,' ',item);
         for(let i=0;i<filtered_item?.value?.length;i++){
             if(filtered_item?.value[i]?.[item] === itemname){
                 console.log('yes equal : ',i);

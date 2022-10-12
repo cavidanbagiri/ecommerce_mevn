@@ -23,7 +23,10 @@ export default {
         product_item : null,
 
         //Get Filtered Result
-        all_filtered_result:[]
+        all_filtered_result:[],
+
+        //Get All Product 5 pcs Items For Home
+        all_product_for_home : []
 
     },
     getters: {
@@ -43,9 +46,9 @@ export default {
         //Get FIltered Result
         GETFILTEREDRESULT: (state) => state.all_filtered_result,
         //Get Product Item with ID
-        GETPRODUCTITEM (state) {
-            return state.product_item
-        }
+        GETPRODUCTITEM (state) { return state.product_item },
+        //get All Products 5 pcs for showing home page
+        GETALLPRODUCTFORHOME: (state) => state.all_product_for_home
     },
     mutations: {
         //Get Products Data && Set Inside Of all_perfumes
@@ -55,6 +58,11 @@ export default {
         //Get Filtered Data and ser all_filtered_result 
         SETFILTEREDRESULT(state, data){
             state.all_filtered_result = data;
+        },
+        //Set Data Form Showing Home Page
+        SETALLPRODUCTFORHOME(state, data){
+            state.all_product_for_home = data;
+            console.log('from pro set', state.all_product_for_home);
         },
         //Get Products Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
@@ -98,6 +106,15 @@ export default {
                 then((respond) => {
                     this.commit('SETALLPRODUCTS', respond.data);
                     this.commit('SETALLMARKS', respond.data);
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
+        },
+        //Load Current Products when enter view page
+        async LOAD_ALL_PRODUCT_FOR_HOME({ state }) {
+            axios.get('http://localhost:3000').
+                then((respond) => {
+                    this.commit('SETALLPRODUCTFORHOME',respond.data);
                 }).catch((err) => {
                     console.log('Error Happen inside Of Perfume get Page : ', err);
                 })

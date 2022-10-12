@@ -29,7 +29,6 @@ export function allFilteredFunction(route) {
     const filteredName = (itemname, item) => {
         let temp = {[item]:itemname};
         filtered_item.value.push(temp);
-        console.log('filtered item : ', filtered_item.value);
         store.dispatch('LOAD_FILTERED_PRODUCTS',filtered_item.value)
     }
     //Filetered Item UnClicked

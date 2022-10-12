@@ -21,6 +21,10 @@ export default {
 
         //Get One Product Item
         product_item : null,
+
+        //Get Filtered Result
+        all_filtered_result:[]
+
     },
     getters: {
         //After Getting Product Page, Main Side WIll Show page items woth this
@@ -36,9 +40,9 @@ export default {
         GETALLMATERIAL: (state) => state.all_material,
         GETALLCLOSURETYPE: (state) => state.all_closure_type,
         GETALLLINNINGDESCRIPTION: (state) => state.all_linning_description,
-        //********************************** */
-        GETALLFILETEREDSEX: (state) => state.filtered_sex,
-        GETFILTEREDRESULT: (state) => state.filtered_result,
+        //Get FIltered Result
+        GETFILTEREDRESULT: (state) => state.all_filtered_result,
+        //Get Product Item with ID
         GETPRODUCTITEM (state) {
             return state.product_item
         }
@@ -47,6 +51,10 @@ export default {
         //Get Products Data && Set Inside Of all_perfumes
         SETALLPRODUCTS(state, data) {
             state.all_products = data;
+        },
+        //Get Filtered Data and ser all_filtered_result 
+        SETFILTEREDRESULT(state, data){
+            state.all_filtered_result = data;
         },
         //Get Products Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
@@ -96,7 +104,7 @@ export default {
         },
         //Get Filtered Items
         async LOAD_FILTERED_PRODUCTS({ state },filtered_items) {
-            let url = 'localhost:3000'+filtered_items[0].url+'/filters';
+            let url = filtered_items[0].url+'/filters';
             let query = '';
             for(let i in filtered_items){
                 if(i>=1){
@@ -112,12 +120,13 @@ export default {
             }
             url+=query;
             console.log(url);
-            // axios.get(url).
-            //     then((respond) => {
-            //         console.log('respond is for makeup query : ',respond.data);
-            //     }).catch((err) => {
-            //         console.log('Error Happen inside Of Perfume get Page : ', err);
-            //     })
+            axios.get(url).
+                then((respond) => {
+                    //If Filtered Data return back any product , this commit will work else return empty
+                    this.commit('SETFILTEREDRESULT', respond.data);
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
         },
         //Get One Product By id
         async LOAD_ONE_DATA({state}, url){

@@ -20,7 +20,12 @@ const store = useStore();
 
 let products = computed(()=>{
     
-    return store.getters['GETALLPRODUCTS'];
+    if(store.getters['GETFILTEREDRESULT']?.length!==0){
+        return store.getters['GETFILTEREDRESULT']
+    }
+    else{
+        return store.getters['GETALLPRODUCTS'];
+    }
 
 })
 

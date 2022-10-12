@@ -29,12 +29,18 @@ export function allFilteredFunction(route) {
     const filteredName = (itemname, item) => {
         let temp = {[item]:itemname};
         filtered_item.value.push(temp);
+        console.log('filtered item : ', filtered_item.value);
         store.dispatch('LOAD_FILTERED_PRODUCTS',filtered_item.value)
     }
     //Filetered Item UnClicked
     const unFilteredName = (itemname, item) => {
-        let temp = {itemname:itemname,item:item};
-        filtered_item.value.s
+        for(let i=0;i<filtered_item?.value?.length;i++){
+            if(filtered_item?.value[i]?.[item] === itemname){
+                console.log('yes equal : ',i);
+                filtered_item?.value?.splice(i,1);
+            }
+        }
+        store.dispatch('LOAD_FILTERED_PRODUCTS',filtered_item.value)
     }
 
     return {brands, departments, formulations, styles, materials,closuretypes, linningdescriptions, filteredName, unFilteredName}

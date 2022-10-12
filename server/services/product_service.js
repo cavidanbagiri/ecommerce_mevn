@@ -5,9 +5,13 @@ const Makeup = require('../models/makeup_model');
 const Accessories = require('../models/accessories_model');
 
 //Load All Products
-const loadProduct = () =>{
-    const products = Product.find();
-    return products;
+const loadProduct = async() =>{
+    let all_products_for_home = [];
+    const makeups = await Makeup.find().limit(5);
+    const accessories = await Accessories.find().limit(5);
+    all_products_for_home = [...makeups, ...accessories]
+    console.log('for home : ',all_products_for_home);
+    return all_products_for_home;
 }
 
 //Create Product->Parfumery Post

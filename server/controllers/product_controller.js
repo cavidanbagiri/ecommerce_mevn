@@ -11,7 +11,7 @@ const {loadProduct,
 //Load All Product Data
 const getIndex = (req, res)=>{
     loadProduct().then((respond)=>{
-        res.status(200).json({'respond':respond});
+        res.status(200).send(respond);
     }).catch((err)=>{
         res.status(500).json({'error':err});
     })

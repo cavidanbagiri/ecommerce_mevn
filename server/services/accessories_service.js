@@ -10,8 +10,6 @@ const loadAccessories = async () =>{
 //Loading Filtered Accessories
 const loadFileteredAccessories = async (query) => {
     const product = await Accessories.find(query);
-    console.log('product : ', product);
-    console.log('-----------------------------------------------');
     return product;
 }
 

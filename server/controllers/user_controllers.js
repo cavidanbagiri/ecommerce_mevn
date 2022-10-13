@@ -11,6 +11,7 @@ const getIndex = (req, res) =>{
 }
 
 const createUser = (req, res) =>{
+    console.log('create user work');
     req.body.password = encryptPassword(req.body.password);
     registerUser(req.body).then((user)=>{
         res.status(200).json({users:user});

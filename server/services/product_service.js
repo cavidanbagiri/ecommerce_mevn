@@ -10,7 +10,6 @@ const loadProduct = async() =>{
     const makeups = await Makeup.find().limit(5);
     const accessories = await Accessories.find().limit(5);
     all_products_for_home = [...makeups, ...accessories]
-    console.log('for home : ',all_products_for_home);
     return all_products_for_home;
 }
 

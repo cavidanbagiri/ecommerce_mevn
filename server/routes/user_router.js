@@ -10,7 +10,8 @@ const {validate} = require('../middlewares/validate');
 const {authenticationToken} = require('../middlewares/authentication');
 
 router.get('/', authenticationToken, user_controller.getIndex);
-router.post('/register', validate(user_schema), user_controller.createUser);
+// router.post('/register', validate(user_schema), user_controller.createUser);
+router.post('/register', user_controller.createUser);
 router.post('/login', validate(user_login_schema), user_controller.login);
 
 module.exports = router;

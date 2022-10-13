@@ -3,17 +3,17 @@ import axios from 'axios';
 export default {
 
     state: {
-        current_user:null
+        current_user_email:null
     },
     getters: {
         //Get Current User After Login
-        GETCURRENTUSER: (state)=>state.current_user
+        GETCURRENTUSER: (state)=>state.current_user_email
     },
     mutations: {
         //
         SETCURRENTUSER: (state, data)=>{
-            state.current_user = data
-            console.log('user data : ', state.current_user);
+            state.current_user_email = data
+            console.log('user data : ', state.current_user_email);
         }
     },
     actions: {
@@ -21,7 +21,7 @@ export default {
         async REGISTERCURRENTUSER({state},userData){
             axios.post('http://localhost:3000/users/register', userData).
             then((respond)=>{
-                console.log('current user : ',respond.data);
+                console.log('1 current user : ',respond.data);
             }).catch((err)=>{
                 console.log('register user err : ', err);
             })
@@ -31,8 +31,7 @@ export default {
             console.log('userdata is : ',userData);
             axios.post('http://localhost:3000/users/login', userData).
             then((respond)=>{
-                console.log('current user : ',respond.data);
-                this.commit('SETCURRENTUSER', userData);
+                this.commit('SETCURRENTUSER', respond.data.message.email);
             }).catch((err)=>{
                 console.log('register user err : ', err);
             })

@@ -62,6 +62,7 @@
                             
                             <button type="button" class="btn border-none position-relative">
                                 <i class="fa-regular fa-user fa-xl" style="color:black"></i>
+                                {{current_gmail}}
                             </button>
                             
                         </router-link>
@@ -90,9 +91,6 @@
                             
                         </router-link>
 
-                        <!-- <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-2">
-                            <span><i class="fa-regular fa-heart fa-xl" style="color:black"></i></span>
-                        </router-link> -->
                         
                     </form>
                 </div>
@@ -102,8 +100,14 @@
     </div>
 </template>
 
-<script>
+<script setup>
 
+    import {useStore} from 'vuex';
+    import {computed} from 'vue';
+    const store = useStore();
 
+    let current_gmail = computed(()=>{
+        return store.getters['GETCURRENTUSER'];
+    })
 
 </script>

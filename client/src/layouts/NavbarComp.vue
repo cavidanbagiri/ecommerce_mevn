@@ -58,9 +58,17 @@
                     </ul>
                     <form class="d-flex align-items-center">
 
-                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-3">
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-1">
                             
-                            <button type="button" class="btn btn-primary border-none position-relative">
+                            <button type="button" class="btn border-none position-relative">
+                                <i class="fa-regular fa-user fa-xl" style="color:black"></i>
+                            </button>
+                            
+                        </router-link>
+
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-1">
+                            
+                            <button type="button" class="btn border-none position-relative">
                                 <i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     1
@@ -70,9 +78,9 @@
                             
                         </router-link>
 
-                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-3">
+                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-1">
                             
-                            <button type="button" class="btn btn-primary border-none position-relative">
+                            <button type="button" class="btn border-none position-relative">
                                 <i class="fa-regular fa-heart fa-xl" style="color:black"></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     1

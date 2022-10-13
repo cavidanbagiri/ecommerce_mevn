@@ -7,7 +7,7 @@
 
         <DesignBrandsComp/>
 
-        <ProductHomeSideComp :products="makeups" />
+        <ProductHomeSideComp :products="products" />
 
         <div style="height:200px">
 
@@ -31,7 +31,7 @@ const store = useStore();
 onMounted(async()=>{
     await store.dispatch('LOAD_ALL_PRODUCT_FOR_HOME');
 })
-let makeups = computed(()=>{
+let products = computed(()=>{
     return store.getters['GETALLPRODUCTFORHOME'];
 })
 

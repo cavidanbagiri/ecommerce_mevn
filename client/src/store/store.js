@@ -3,8 +3,11 @@
 import { createStore } from 'vuex';
 import ProductStore from './product';
 import UserStore from './user';
-import createPersistedState from "vuex-persistedstate";
+import VuexPersistence from "vuex-persist";
 
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+  })
 
 const store = createStore({
 
@@ -13,7 +16,7 @@ const store = createStore({
         userStore: UserStore
     },
 
-    plugins: [createPersistedState()]
+    plugins: [vuexLocal.plugin]
 
 })
 

@@ -12,7 +12,7 @@
                     <span class="ms-3 text-xs bg-green-400 text-white">{{props?.product?.percentprice}}%</span>
                 </span>
             </div>
-            <a href="#" class="btn btn-dark btn-sm my-1">Add Wishlist</a>
+            <input class="btn btn-dark btn-sm my-1" @click="addBasket(props.product)" value='Add Wishlist'/>
         </div>
     </div>
     </router-link>
@@ -20,6 +20,13 @@
 
 <script setup>
 
+    import {useStore} from 'vuex';
+
+    const store = useStore();
     const props = defineProps(['product']);
+
+    const addBasket =  (product) => {
+        store.dispatch('AddBasket', product);
+    }
 
 </script>

@@ -62,7 +62,6 @@ export default {
         //Set Data Form Showing Home Page
         SETALLPRODUCTFORHOME(state, data){
             state.all_product_for_home = data;
-            console.log('from pro set', state.all_product_for_home);
         },
         //Get Products Data && Set Marks For Left Side Marks
         SETALLMARKS(state, data){
@@ -136,7 +135,6 @@ export default {
                 }
             }
             url+=query;
-            console.log(url);
             axios.get(url).
                 then((respond) => {
                     //If Filtered Data return back any product , this commit will work else return empty

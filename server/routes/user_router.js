@@ -9,9 +9,14 @@ const {validate} = require('../middlewares/validate');
 //Authentication Middleware
 const {authenticationToken} = require('../middlewares/authentication');
 
-router.get('/', authenticationToken, user_controller.getIndex);
+//Return Back To All Users
+router.get('/',  user_controller.getIndex);
 // router.post('/register', validate(user_schema), user_controller.createUser);
 router.post('/register', user_controller.createUser);
+//Post Login Page
 router.post('/login', validate(user_login_schema), user_controller.login);
+//Add Product to User Basket Without Validate
+// router.post('/addproduct', authenticationToken, user_controller.addProductBasket);
+router.post('/addproduct',  user_controller.addProductBasket);
 
 module.exports = router;

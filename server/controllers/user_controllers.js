@@ -1,4 +1,4 @@
-const { getUsersList, registerUser, loginUser } = require("../services/user_service");
+const { getUsersList, registerUser, loginUser, addProductToBasket } = require("../services/user_service");
 const {encryptPassword, generateAccessToken, generateRefreshToken} = require('../scripts/utils/helpers');
 const httpStatus = require('http-status');
 
@@ -32,15 +32,27 @@ const login = (req, res) =>{
                 access_token:generateAccessToken(user),
                 refresh_token:generateRefreshToken(user),
             }
+            
         };
         delete user?.password;
+        //Add User To Req Temporary
+        // req.user = user;
         res.status(httpStatus.OK).json({message:user});
     }).catch((err)=>{
         res.status(500).json({error:err});
     })
 }
 
+const addProductBasket = (req, res) => {
+    const product = req.body;
+    addProductToBasket(product).then((respond)=>{
+        res.status(200).json({'respond for adding Product' : respond});
+    }).catch((err)=>{
+        res.json({'error for adding product ' : err});
+    });
+}
+
 
 module.exports = {
-    getIndex, createUser, login
+    getIndex, createUser, login, addProductBasket
 }

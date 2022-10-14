@@ -9,8 +9,13 @@ loader();
 //Import Routers
 const {UserRouter, ParfumeryRouter, ProductRouter, MakeUpRouter, AccessoriesRouter} = require('./routes');
 
+
 //Use CORS For Request and Respond Data From Node to Vue
-app.use(cors())
+app.use(cors({
+    // credentials:true
+    // allowedHeaders[]
+    // exposedHeaders:['Content-Length', 'Content-Type', 'authorization', 'RefreshToken', 'Token'],
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('uploads'));

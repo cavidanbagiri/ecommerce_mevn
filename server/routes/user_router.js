@@ -11,6 +11,8 @@ const {authenticationToken} = require('../middlewares/authentication');
 
 //Return Back To All Users
 router.get('/',  user_controller.getIndex);
+//Get User Basket Products
+router.get('/basket', user_controller.getBasketProducts);
 // router.post('/register', validate(user_schema), user_controller.createUser);
 router.post('/register', user_controller.createUser);
 //Post Login Page

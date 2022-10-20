@@ -1,4 +1,4 @@
-const { getUsersList, registerUser, loginUser, addProductToBasket } = require("../services/user_service");
+const { getUsersList, registerUser, loginUser, addProductToBasket,loadBasketProducts, } = require("../services/user_service");
 const {encryptPassword, generateAccessToken, generateRefreshToken} = require('../scripts/utils/helpers');
 const httpStatus = require('http-status');
 
@@ -7,6 +7,16 @@ const getIndex = (req, res) =>{
         res.status(200).json({users:user});
     }).catch((err)=>{
         res.status(500).json({error:err});
+    })
+}
+
+//Load BasketProducts
+const getBasketProducts = (req, res)=>{
+    console.log('from cont req user : ',req.user);
+    loadBasketProducts(req).then((respond)=>{
+        res.status(200).send(respond);
+    }).catch((err)=>{
+        res.status(500).json({'error':err});
     })
 }
 
@@ -54,5 +64,5 @@ const addProductBasket = (req, res) => {
 
 
 module.exports = {
-    getIndex, createUser, login, addProductBasket
+    getIndex, createUser, login, addProductBasket,getBasketProducts
 }

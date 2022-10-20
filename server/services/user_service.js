@@ -7,6 +7,11 @@ const getUsersList = () =>{
     return users;
 }
 
+//Get Basket Products
+const loadBasketProducts = async (req) =>{
+    console.log(req.user);
+}
+
 const registerUser = (user) =>{
     const cuser = new User(user);
     return cuser.save();
@@ -26,9 +31,12 @@ const addProductToBasket = async(product) => {
     }).then((respond)=>console.log('respond is : ',respond)).catch((err)=>console.log('err is ',err));
 }
 
+
+
 module.exports = {
     getUsersList,
     registerUser,
     loginUser,
-    addProductToBasket
+    addProductToBasket,
+    loadBasketProducts
 }

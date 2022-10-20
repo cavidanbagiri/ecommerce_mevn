@@ -6,7 +6,6 @@ const {loadProduct,
         getProductItemByIdFromMakeup, 
         getProductItemByIdFromParfumery,    
         getProductItemByIdFromAccessories,
-        loadBasketProducts,
     } = require('../services/product_service');
 
 //Load All Product Data
@@ -17,15 +16,7 @@ const getIndex = (req, res)=>{
         res.status(500).json({'error':err});
     })
 }
-//Load BasketProducts
-const getBasketProducts = (req, res)=>{
-    console.log('from cont req user : ',req.user);
-    loadBasketProducts(req).then((respond)=>{
-        res.status(200).send(respond);
-    }).catch((err)=>{
-        res.status(500).json({'error':err});
-    })
-}
+
 //Get Create Product Page
 const getCreateProduct = (req, res) =>{
     res.json({create_Product_Get:'Create Product get Page'});
@@ -92,5 +83,4 @@ module.exports = {
     getCreateProduct,
     postCreateProduct,
     getParfumeryItem,
-    getBasketProducts
 }

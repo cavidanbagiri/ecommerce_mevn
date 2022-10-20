@@ -5,12 +5,22 @@ const {loadProduct,
         createAccessoriesPost,
         getProductItemByIdFromMakeup, 
         getProductItemByIdFromParfumery,    
-        getProductItemByIdFromAccessories
+        getProductItemByIdFromAccessories,
+        loadBasketProducts,
     } = require('../services/product_service');
 
 //Load All Product Data
 const getIndex = (req, res)=>{
     loadProduct().then((respond)=>{
+        res.status(200).send(respond);
+    }).catch((err)=>{
+        res.status(500).json({'error':err});
+    })
+}
+//Load BasketProducts
+const getBasketProducts = (req, res)=>{
+    console.log('from cont req user : ',req.user);
+    loadBasketProducts(req).then((respond)=>{
         res.status(200).send(respond);
     }).catch((err)=>{
         res.status(500).json({'error':err});
@@ -82,4 +92,5 @@ module.exports = {
     getCreateProduct,
     postCreateProduct,
     getParfumeryItem,
+    getBasketProducts
 }

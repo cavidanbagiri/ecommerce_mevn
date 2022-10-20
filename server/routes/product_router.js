@@ -2,12 +2,12 @@
 const express = require('express');
 const router = express.Router();
 const multer_upload = require('../helpers/multer_service.js');
-const { getIndex, getCreateProduct, postCreateProduct, getParfumeryItem } = require('../controllers/product_controller');
-
-// const {getCreateProduct, postCreateProduct, getParfumeryItem} = require('../controllers/parfumery_controller');
+const { getIndex, getCreateProduct, postCreateProduct, getParfumeryItem,getBasketProducts } = require('../controllers/product_controller');
 
 //get Index Page
 router.get('/', getIndex);
+//get User Basket products
+router.get('/basket', getBasketProducts);
 //Get Create Data From Admin Page
 router.get('/create', getCreateProduct);
 //Post New Data From Admin Page

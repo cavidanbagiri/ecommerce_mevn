@@ -13,6 +13,11 @@ const loadProduct = async() =>{
     return all_products_for_home;
 }
 
+//Get Basket Products
+const loadBasketProducts = async (req) =>{
+    console.log(req.user);
+}
+
 //Create Product->Parfumery Post
 const createParfumeryPost = async (product_data) => {
     const newProduct = await new Parfumery(product_data)
@@ -97,12 +102,12 @@ const getProductItemByIdFromAccessories = async(id)=>{
 
 
 module.exports = {
-
     loadProduct,
     createParfumeryPost,
     createMakeupPost,
     getProductItemByIdFromParfumery,
     getProductItemByIdFromMakeup,
     createAccessoriesPost,
-    getProductItemByIdFromAccessories
+    getProductItemByIdFromAccessories,
+    loadBasketProducts
 }

@@ -138,12 +138,13 @@
 
 <script setup>
 
-import { ref, reactive } from 'vue';
+import { ref, reactive, } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
 const sex_options = ref(['Man', 'Woman', 'Child'])
 const sex_selected = ref('Man')
+
 
 let file = ref(null);
 let selected_file = ref(null);

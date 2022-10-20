@@ -10,7 +10,9 @@
 
         <AccessoriesPage/>
 
-        <component :is="tabs[category_selected]"></component>
+        <keep-alive>
+            <component :is="tabs[category_selected]"></component>
+        </keep-alive>
 
     </div>
 </template>

@@ -1,5 +1,6 @@
 
 const MakeUp = require('../models/makeup_model');
+const Product = require('../models/product_model');
 
 //Loading All Makeups
 const loadMakeups = async () =>{

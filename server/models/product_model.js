@@ -7,6 +7,10 @@ const productSchema = new Schema({
     catalog: String,
     brand: String,
     name: String,
+    actualprice: Number,
+    percentprice: Number,
+    withoutpercentprice: Number,
+    file : String,
     refid: {
         type: Schema.Types.ObjectId
     }

@@ -1,5 +1,6 @@
 
 const Accessories = require('../models/accessories_model');
+const Product = require('../models/product_model');
 
 //Loading All Accessories
 const loadAccessories = async () =>{

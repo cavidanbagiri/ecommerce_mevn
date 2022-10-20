@@ -3,17 +3,24 @@ import axios from 'axios';
 export default {
 
     state: {
-        current_user_email:null
+        current_user_email:null,
+        basket_data:[]
     },
     getters: {
         //Get Current User After Login
-        GETCURRENTUSER: (state)=>state.current_user_email
+        GETCURRENTUSER: (state)=>state.current_user_email,
+        GETBASKETDATA: (state)=>state.basket_data
     },
     mutations: {
-        //
+        //Set Current User
         SETCURRENTUSER: (state, data)=>{
             state.current_user_email = data
             console.log('user data : ', state.current_user_email);
+        },
+        //Set Basket Data to Basket data
+        SETBASKETDATA: (state, data)=>{
+            state.basket_data = data;
+            console.log('basket data : ',state.basket_data);
         }
     },
     actions: {
@@ -46,7 +53,18 @@ export default {
             }).catch((err)=>{
                 console.log('register user err : ', err);
             })
+        },
+        //Load User Basket
+        async GETBASKET({state}){
+            await axios.get('http://localhost:3000/users/basket').
+            then((respond)=>{
+                console.log('basket product data : ',respond.data);
+                this.commit('SETBASKETDATA',respond.data);
+            }).catch((err)=>{
+                console.log('basket product err : ', err);
+            })
         }
+        
     },
 
 

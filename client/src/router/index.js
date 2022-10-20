@@ -10,6 +10,7 @@ import Makeup from '../views/MakeupPage.vue';
 import Accessories from '../views/AccessoriesPage.vue';
 import Register from '../views/RegisterPage.vue';
 import Login from '../views/LoginPage.vue';
+import Basket from '../views/BasketPage.vue';
 
 const routes = [
 
@@ -21,7 +22,8 @@ const routes = [
     {path:'/accessories', name:'Accessories', component:Accessories},
     {path:'/product/:id', name:'ProductItem', component:ProductItem},
     {path:'/register', name:'Register', component:Register},
-    {path:'/login', name:'Login', component:Login}
+    {path:'/login', name:'Login', component:Login},
+    {path:'/basket', name:'Basket', component:Basket}
 ]
 
 const router = createRouter({

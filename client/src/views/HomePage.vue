@@ -27,10 +27,6 @@ import DesignBrandsComp from "../layouts/DesignComponents/DesignBrandsComp.vue";
 import ProductHomeSideComp from "../layouts/ProductCard/producthomecomps/ProductHomeSideComp.vue";
 const store = useStore();
 
-
-onMounted(async()=>{
-    await store.dispatch('LOAD_ALL_PRODUCT_FOR_HOME');
-})
 let products = computed(()=>{
     return store.getters['GETALLPRODUCTFORHOME'];
 })

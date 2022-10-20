@@ -1,6 +1,7 @@
 
 <template>
     <div class="row flex justify-content-center mt-2">
+        
         <ProductLeftSideFilter/>
         <ProductMainSide />
     </div>

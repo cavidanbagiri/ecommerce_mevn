@@ -21,11 +21,9 @@ const store = useStore();
 let products = computed(()=>{
     
     if(store.getters['GETFILTEREDRESULT']?.length!==0){
-        console.log('products if : ',store.getters['GETFILTEREDRESULT'])
         return store.getters['GETFILTEREDRESULT']
     }
     else{
-        console.log('products else : ',store.getters['GETALLPRODUCTS'])
         return store.getters['GETALLPRODUCTS'];
     }
 

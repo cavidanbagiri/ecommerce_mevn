@@ -67,7 +67,7 @@
                             
                         </router-link>
 
-                        <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-1">
+                        <router-link :to="{name:'Basket'}" class="nav-link active text-stone-300 text-md px-1">
                             
                             <button type="button" class="btn border-none position-relative">
                                 <i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i>

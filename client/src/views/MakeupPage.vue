@@ -1,6 +1,7 @@
 
 <template>
     <div class="row flex justify-content-center mt-2">
+        <span v-font-size="28">Make Up</span>
         <ProductLeftSideFilter/>
         <ProductMainSide />
     </div>
@@ -10,6 +11,7 @@
 
 import ProductLeftSideFilter from '../layouts/ProductCard/ProductLeftSideFilter.vue';
 import ProductMainSide from '../layouts/ProductCard/ProductMainSide.vue';
+
 
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';

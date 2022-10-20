@@ -101,7 +101,7 @@ export default {
     actions: {
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCTS({ state }, product_catalog) {
-            axios.get('http://localhost:3000/'+product_catalog).
+            await axios.get('http://localhost:3000/'+product_catalog).
                 then((respond) => {
                     this.commit('SETALLPRODUCTS', respond.data);
                     this.commit('SETALLMARKS', respond.data);
@@ -120,7 +120,8 @@ export default {
         },
         //Get Filtered Items
         async LOAD_FILTERED_PRODUCTS({ state },filtered_items) {
-            let url = filtered_items[0].url+'/filters';
+            let url = 'http://localhost:3000'+filtered_items[0].url+'/filters';
+            console.log('url is : ',url);
             let query = '';
             for(let i in filtered_items){
                 if(i>=1){

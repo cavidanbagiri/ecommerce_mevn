@@ -12,8 +12,8 @@ const getIndex = (req, res) =>{
 
 //Load BasketProducts
 const getBasketProducts = (req, res)=>{
-    console.log('from cont req user : ',req.user);
-    loadBasketProducts(req).then((respond)=>{
+    console.log('get basket product node from cont req user : ',req.user);
+    loadBasketProducts().then((respond)=>{
         res.status(200).send(respond);
     }).catch((err)=>{
         res.status(500).json({'error':err});

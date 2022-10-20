@@ -43,6 +43,7 @@ const createMakeupPost = async (product_data) => {
             actualprice: product_data.actualprice,
             percentprice: product_data.percentprice,
             withoutpercentprice: product_data.withoutpercentprice,
+            file: product_data.file,
              refid:newProduct
             });
         some.save();
@@ -61,8 +62,12 @@ const createAccessoriesPost = async (product_data) => {
             catalog:product_data.catalog,
             brand:product_data.brand,
             name:product_data.name,
-         refid:newProduct
-        });
+            actualprice: product_data.actualprice,
+            percentprice: product_data.percentprice,
+            withoutpercentprice: product_data.withoutpercentprice,
+            file: product_data.file,
+             refid:newProduct
+            });
         some.save();
      }
      catch(e){

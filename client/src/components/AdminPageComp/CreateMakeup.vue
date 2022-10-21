@@ -194,6 +194,8 @@ const addProduct = async () => {
     formData.append('characteristic', product.characteristic);
     formData.append('information', product.information);
     store.dispatch('CREATE_DATA', formData);
+    // store.dispatch('CREATE_DATA', product);
+
 }
 
 

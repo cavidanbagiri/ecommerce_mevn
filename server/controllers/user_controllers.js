@@ -45,8 +45,6 @@ const login = (req, res) =>{
             
         };
         delete user?.password;
-        //Add User To Req Temporary
-        // req.user = user;
         res.status(httpStatus.OK).json({message:user});
     }).catch((err)=>{
         res.status(500).json({error:err});

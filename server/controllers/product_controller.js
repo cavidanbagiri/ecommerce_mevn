@@ -22,6 +22,7 @@ const getCreateProduct = (req, res) =>{
     res.json({create_Product_Get:'Create Product get Page'});
 }
 const postCreateProduct = (req, res) => {
+    console.log('file is : ',req.file);
     req.body.file = req.file.originalname;
     //Catalog === Makeup this will work
     if(req.body.catalog === 'Makeup'){

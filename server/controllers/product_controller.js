@@ -6,11 +6,22 @@ const {loadProduct,
         getProductItemByIdFromMakeup, 
         getProductItemByIdFromParfumery,    
         getProductItemByIdFromAccessories,
+        loadProductsForSeach
     } = require('../services/product_service');
 
 //Load All Product Data
 const getIndex = (req, res)=>{
     loadProduct().then((respond)=>{
+        res.status(200).send(respond);
+    }).catch((err)=>{
+        res.status(500).json({'error':err});
+    })
+}
+
+//Load Search Products 
+const getSearch = (req, res) =>{
+    console.log('search val : ', req.query.value);
+    loadProductsForSeach(req.query.value).then((respond)=>{
         res.status(200).send(respond);
     }).catch((err)=>{
         res.status(500).json({'error':err});
@@ -84,4 +95,5 @@ module.exports = {
     getCreateProduct,
     postCreateProduct,
     getParfumeryItem,
+    getSearch
 }

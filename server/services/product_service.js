@@ -13,6 +13,11 @@ const loadProduct = async() =>{
     return all_products_for_home;
 }
 
+//Load Search Products
+const loadProductsForSeach = async(search_key) => {
+    let products_for_search_bar = await Product.find({name:{ $regex: '.*'+search_key+'.*' }});
+    return products_for_search_bar;
+}
 
 //Create Product->Parfumery Post
 const createParfumeryPost = async (product_data) => {
@@ -105,5 +110,5 @@ module.exports = {
     getProductItemByIdFromMakeup,
     createAccessoriesPost,
     getProductItemByIdFromAccessories,
- 
+    loadProductsForSeach
 }

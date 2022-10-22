@@ -4,6 +4,9 @@ import axios from 'axios';
 export default {
     state: {
         
+        //Load All Products From Product Models for Search bar
+        search_products: [],
+
         //Load All Choosing Items and Assign
         all_products: [],
         //After Loading All Choosing, Load All Brands To all_marks as Set
@@ -30,6 +33,8 @@ export default {
 
     },
     getters: {
+        //Get Search Bar Products
+        GETSEARCHPRODUCT: (state) => state.search_products,
         //After Getting Product Page, Main Side WIll Show page items woth this
         GETALLPRODUCTS: (state) => state.all_products,
         //This is common getters because all items have brands
@@ -51,6 +56,11 @@ export default {
         GETALLPRODUCTFORHOME: (state) => state.all_product_for_home
     },
     mutations: {
+        //Set Search Bar Products
+        SETSEARCHPRODUCT(state, data) {
+            state.search_products = data;
+            console.log('search product : ',state.search_products);
+        },
         //Get Products Data && Set Inside Of all_perfumes
         SETALLPRODUCTS(state, data) {
             state.all_products = data;
@@ -99,6 +109,16 @@ export default {
         
     },
     actions: {
+        //Load All Products From Product Models for getting this in search bar
+        async LOADSEARCHBARPRODUCTS({state}, keys){
+            console.log('keys : ', keys)    ;
+            await axios.get('http://localhost:3000/search?value='+keys).
+                then((respond) => {
+                    this.commit('SETSEARCHPRODUCT', respond.data);
+                }).catch((err) => {
+                    console.log('Error Happen inside Of Perfume get Page : ', err);
+                })
+        },
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCTS({ state }, product_catalog) {
             await axios.get('http://localhost:3000/'+product_catalog).
@@ -111,6 +131,7 @@ export default {
         },
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCT_FOR_HOME({ state }) {
+            console.log('load for search bar');
             axios.get('http://localhost:3000').
                 then((respond) => {
                     this.commit('SETALLPRODUCTFORHOME',respond.data);
@@ -163,47 +184,3 @@ export default {
 
     },
 }
-
-// SETFILTEREDRESULT(state,all_filtered_items){
-//     //Create Temporary Array 
-//     let temp = [];
-//     for(let [key, value] of Object.entries(all_filtered_items.sex_clicked)){
-//         if(value){
-//             for(let i in state.all_perfumes){
-//                 if(state.all_perfumes[i].sex === key){
-//                     temp.push(state.all_perfumes[i]);
-//                 }
-//             }
-//         }
-//     }
-//     state.filtered_result = temp;
-//     console.log('filtered sex result : ',state.filtered_result)
-//     if(state.filtered_result.length > 0 ){
-//         if(all_filtered_items.clicked_brands.length>0){
-//             console.log('enter if for brands');
-//             let temp = [];
-//             for(let i in all_filtered_items.clicked_brands){
-//                 for(let j in state.filtered_result){
-//                     if(all_filtered_items.clicked_brands[i] === state.filtered_result[j].brand){
-//                         temp.push(state.filtered_result[j]);
-//                     }
-//                 }
-//             }
-//             state.filtered_result = temp;
-//         }
-//     }
-//     else{
-//         if(all_filtered_items.clicked_brands.length>0){
-//             console.log('enter if for brands');
-//             let temp = [];
-//             for(let i in all_filtered_items.clicked_brands){
-//                 for(let j in state.all_perfumes){
-//                     if(all_filtered_items.clicked_brands[i] === state.all_perfumes[j].brand){
-//                         temp.push(state.all_perfumes[j]);
-//                     }
-//                 }
-//             }
-//             state.filtered_result = temp;
-//         }
-//     }
-// },

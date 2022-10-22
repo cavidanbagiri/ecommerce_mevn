@@ -54,7 +54,9 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <input class="form-control ms-2 border border-dark my-1" type="search" placeholder="Brands" aria-label="Search" />
+                        <!--Search Bar -->
+                        <input class="form-control ms-2 border border-dark my-1" @keyup="searchFunc" type="search" placeholder="Search" aria-label="Search" />
+                        
                     </ul>
                     <form class="d-flex align-items-center">
 
@@ -103,8 +105,12 @@
 <script setup>
 
     import {useStore} from 'vuex';
-    import {computed} from 'vue';
+    import {computed, ref} from 'vue';
     const store = useStore();
+
+    const searchFunc= (e) => {
+        store.dispatch('LOADSEARCHBARPRODUCTS', e.target.value);
+    }
 
     let current_gmail = computed(()=>{
         return store.getters['GETCURRENTUSER'];

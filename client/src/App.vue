@@ -14,4 +14,6 @@
 
   import NavbarComp from "./layouts/NavbarComp.vue";
 
+  
+
 </script>

@@ -74,7 +74,7 @@
                             <button type="button" class="btn border-none position-relative">
                                 <i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    1
+                                    2
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button>
@@ -93,7 +93,6 @@
                             
                         </router-link>
 
-                        
                     </form>
                 </div>
             </div>

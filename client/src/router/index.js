@@ -11,6 +11,7 @@ import Accessories from '../views/AccessoriesPage.vue';
 import Register from '../views/RegisterPage.vue';
 import Login from '../views/LoginPage.vue';
 import Basket from '../views/BasketPage.vue';
+import Page404 from '../views/404.vue';
 
 const routes = [
 
@@ -23,7 +24,9 @@ const routes = [
     {path:'/product/:id', name:'ProductItem', component:ProductItem},
     {path:'/register', name:'Register', component:Register},
     {path:'/login', name:'Login', component:Login},
-    {path:'/basket', name:'Basket', component:Basket}
+    {path:'/basket', name:'Basket', component:Basket},
+    {path:'/:catchAll(.*)*', name:'Page404', component:Page404}
+
 ]
 
 const router = createRouter({

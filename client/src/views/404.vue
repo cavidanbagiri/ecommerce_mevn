@@ -2,11 +2,13 @@
 
 <template>
     <div>
-        Page Not Found
+        
     </div>
 </template>
 
-<script>
+<script script>
+
+    
 </script>
 
 <style lang="scss" scoped>

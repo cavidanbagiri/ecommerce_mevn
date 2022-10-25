@@ -11,7 +11,16 @@ const {UserRouter, ParfumeryRouter, ProductRouter, MakeUpRouter, AccessoriesRout
 
 
 //Use CORS For Request and Respond Data From Node to Vue
-app.use(cors());
+app.use(cors(
+    {
+        origin:'http://localhost:5173',
+        // methods: [
+        //     "GET","POST"
+        // ]
+        // credentials:false
+    },
+    
+));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('uploads'));

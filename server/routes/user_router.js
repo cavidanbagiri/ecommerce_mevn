@@ -20,5 +20,9 @@ router.post('/login', validate(user_login_schema), user_controller.login);
 //Add Product to User Basket Without Validate
 // router.post('/addproduct', authenticationToken, user_controller.addProductBasket);
 router.post('/addproduct',  user_controller.addProductBasket);
-
+//Test 
+router.get('/friends', authenticationToken, (req, res)=>{
+    console.log('getting friends ');
+    res.send(['c','c++']);
+})
 module.exports = router;

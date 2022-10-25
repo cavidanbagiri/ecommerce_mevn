@@ -11,9 +11,9 @@
                     </h1>
                     <form class="space-y-4 md:space-y-6" @submit="login" > 
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                            <label for="email"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                 email</label>
-                            <input type="email" name="email" id="email" v-model="registering_user.email"
+                            <input type="email" name="email" v-autofocus v-font-size="50" id="email" v-model="registering_user.email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600
                                  focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
                                   dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -37,9 +37,6 @@
                                 here</a>
                         </p>
                     </form>
-                    <pre>
-                        {{registering_user}}
-                    </pre>
                 </div>
             </div>
         </div>
@@ -48,6 +45,7 @@
 
 <script setup>
 
+    // import {Autofocus} from '../directives/focus';
     import {useStore} from 'vuex';
     import {reactive} from 'vue';
     const store = useStore();
@@ -56,6 +54,7 @@
         email:null,
         password:null,
     })
+
 
     const login = () => {
         store.dispatch('LOGINCURRENTUSER', registering_user);

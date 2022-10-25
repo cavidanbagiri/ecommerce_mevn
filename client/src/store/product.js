@@ -121,7 +121,8 @@ export default {
         },
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCTS({ state }, product_catalog) {
-            await axios.get('http://localhost:3000/'+product_catalog).
+            // console.log('env var : ',import.meta.env.VITE_API_URL);
+            await axios.get('api/'+product_catalog).
                 then((respond) => {
                     this.commit('SETALLPRODUCTS', respond.data);
                     this.commit('SETALLMARKS', respond.data);

@@ -12,7 +12,7 @@ export default {
         //After Loading All Choosing, Load All Brands To all_marks as Set
         all_brands: [],
         
-        //Makeups Filtered Items
+        //Makeups Filtered Items    
         all_departments : [],
         all_formulation : [],
 
@@ -112,7 +112,7 @@ export default {
         //Load All Products From Product Models for getting this in search bar
         async LOADSEARCHBARPRODUCTS({state}, keys){
             console.log('keys : ', keys)    ;
-            await axios.get('http://localhost:3000/search?value='+keys).
+            await axios.get('api/search?value='+keys).
                 then((respond) => {
                     this.commit('SETSEARCHPRODUCT', respond.data);
                 }).catch((err) => {
@@ -132,7 +132,7 @@ export default {
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCT_FOR_HOME({ state }) {
             console.log('load for search bar');
-            axios.get('http://localhost:3000').
+            axios.get('api/').
                 then((respond) => {
                     this.commit('SETALLPRODUCTFORHOME',respond.data);
                 }).catch((err) => {
@@ -141,8 +141,7 @@ export default {
         },
         //Get Filtered Items
         async LOAD_FILTERED_PRODUCTS({ state },filtered_items) {
-            let url = 'http://localhost:3000'+filtered_items[0].url+'/filters';
-            console.log('url is : ',url);
+            let url = 'api'+filtered_items[0].url+'/filters';
             let query = '';
             for(let i in filtered_items){
                 if(i>=1){
@@ -167,7 +166,7 @@ export default {
         },
         //Get One Product By id
         async LOAD_ONE_DATA({state}, url){
-            await axios.get('http://localhost:3000/product/'+url.id+'?catalog='+url.catalog).
+            await axios.get('api/product/'+url.id+'?catalog='+url.catalog).
                 then(async(respond) => {
                     await this.commit('SETPRODUCTITEM', respond)
                 }).catch((err) => {

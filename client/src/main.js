@@ -9,8 +9,9 @@ import FontSize from './directives/fontsize';
 // axios.defaults.baseURL = 'http://localhost:3000/';
 const app = createApp(App);
 
-
+//Custom Directives
 app.directive('font-size', FontSize);
+
 
 app.use(router);
 app.use(store);

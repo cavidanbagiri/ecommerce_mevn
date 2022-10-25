@@ -12,11 +12,12 @@
 import ProductLeftSideFilter from '../layouts/ProductCard/ProductLeftSideFilter.vue';
 import ProductMainSide from '../layouts/ProductCard/ProductMainSide.vue';
 
-
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
+
+
 
 onMounted(async()=>{
     await store.dispatch('LOAD_ALL_PRODUCTS','makeup');

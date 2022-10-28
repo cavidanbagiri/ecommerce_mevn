@@ -27,7 +27,11 @@ export default {
                 }
                 const message = messages[context.rule.name] ? messages[context.rule.name] : `The ${context.field} ia invalid`; 
                 return message;
-            }
+            },
+            validateOnBlur:true,
+            validateOnChange:true,
+            validateOnInput:false,
+            validateOnModelUpdate:true
         })
 
     }

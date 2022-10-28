@@ -5,40 +5,20 @@
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden md:h-96">
                 <!-- Item 1 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
-                    data-carousel-item="">
-                    <span
-                        class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First
-                        Slide</span>
-                    <img src="../../assets/sliderimages/image4.jpg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 2 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
-                    data-carousel-item="">
-                    <img src="../../assets/sliderimages/image3.jpg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 3 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
-                    data-carousel-item="">
-                    <img src="../../assets/sliderimages/image2.jpg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20" data-carousel-item="" v-for="i in images.length" :key="i">
+                    <p>{{images.length}}</p>
+                    <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                    <img :src="images[count]" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true"
-                    aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button"
-                    class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-                    aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button"
-                    class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-                    aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <div  v-for="i in images.length" :key="i-=1">
+                    <button :style="i===count ? {'backgroundColor':'rgb(196, 98, 98)'} : {'backgroundColor':'rgb(161, 159, 159)'}" type="button" class="w-3 h-3 rounded-full" @click="changeIndicator(i)" ></button>
+                </div>
             </div>
             <!-- Slider controls -->
-            <button type="button"
+            <button type="button" @click="prev"
                 class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-prev="">
                 <span
@@ -51,7 +31,7 @@
                     <span class="sr-only">Previous</span>
                 </span>
             </button>
-            <button type="button"
+            <button type="button" @click="next"
                 class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-next="">
                 <span
@@ -67,7 +47,29 @@
 
     </div>
 </template>
+
 <script setup>
+
+    import {ref} from 'vue';
+
+    let count = ref(0);
+    const images = ref([
+        'src/assets/sliderimages/image4.jpg',
+        'src/assets/sliderimages/image2.jpg',
+        'src/assets/sliderimages/image3.jpg',
+        'src/assets/sliderimages/image1.jpg'
+    ])
+
+
+    const next = () => count.value < images.value.length-1 ? count.value+=1 : count.value = 0
+    const prev = () => count.value > 0 ? count.value-=1 : count.value=2;
+    const changeIndicator = (i) =>{
+        count.value = i;
+        console.log('i is : ',i, ' count is : ',count.value);
+
+    }
+
+    setInterval(next,3000)
 
 
 

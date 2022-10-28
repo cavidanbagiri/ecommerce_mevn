@@ -55,7 +55,7 @@
                             </ul>
                         </li>
                         <!--Search Bar -->
-                        <input class="form-control ms-2 border border-dark my-1" @keyup="searchFunc" type="search" placeholder="Search" aria-label="Search" />
+                            <input class="form-control ms-2 border border-secondary my-1 rounded-3xl" @keyup="searchFunc" type="search" placeholder="Search" aria-label="Search" />
                         
                     </ul>
                     <form class="d-flex align-items-center">

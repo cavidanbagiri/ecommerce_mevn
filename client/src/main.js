@@ -19,6 +19,7 @@ app.use(VeeValidationPlugin);
 app.use(router);
 app.use(store);
 
+
 app.mount('#app');
 
 

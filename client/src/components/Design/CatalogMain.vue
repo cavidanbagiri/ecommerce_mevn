@@ -9,15 +9,17 @@
 
         <div class="col-sm-12">
             <div class="row flex justify-content-center my-2">
-                <div class=" col-md-5 m-1 bg-inherit border shadow-sm" style="height:300px; background-color: rgba(240,240,240,255);">
-                    <router-link :to="{path:'Parfumery'}">
+                <div class=" col-md-5 m-1 bg-inherit border shadow-sm"
+                    style="height:300px; background-color: rgba(240,240,240,255);">
+                    <router-link :to="{ path: 'Parfumery' }">
                         <img class="img-fluid" src="../../assets/catalog/parfumery.png" alt=""
                             style="height:250px; background-color: rgba(240,240,240,255);" />
                         <span class="text-2xl fw-bold">Parfumery</span>
                     </router-link>
-                    </div>
-                <div class=" col-md-3 m-1 bg-inherit border shadow-sm" style="height:300px; background-color: rgba(240,240,240,255);">
-                    <router-link :to="{path:'Makeup'}">
+                </div>
+                <div class=" col-md-3 m-1 bg-inherit border shadow-sm"
+                    style="height:300px; background-color: rgba(240,240,240,255);">
+                    <router-link :to="{ path: 'Makeup' }">
                         <img class="img-fluid" src="../../assets/catalog/makeup.png" alt=""
                             style="height:250px; background-color: rgba(240,240,240,255);" />
                         <span class="text-2xl fw-bold">Makeup</span>
@@ -25,9 +27,11 @@
                 </div>
                 <div class=" col-md-3 m-1 bg-inherit border shadow-sm"
                     style="height:300px; background-color: rgba(240,240,240,255);">
-                    <img class="img-fluid" src="../../assets/catalog/accessories.png" alt=""
-                        style="height:250px; background-color: rgba(240,240,240,255);" />
-                    <span class="text-2xl fw-bold">Accessories</span>
+                    <router-link :to="{ path: 'Accessories' }">
+                        <img class="img-fluid" src="../../assets/catalog/accessories.png" alt=""
+                            style="height:250px; background-color: rgba(240,240,240,255);" />
+                        <span class="text-2xl fw-bold">Accessories</span>
+                    </router-link>
                 </div>
             </div>
         </div>

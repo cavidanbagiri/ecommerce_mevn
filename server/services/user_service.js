@@ -15,11 +15,7 @@ const loadBasketProducts = async () =>{
     const temp_user = await User.findOne({email:'cavidanbagiri@gmail.com'});
     let basket_products = [];
     for(let i = 0 ; i < temp_user.basket.length;i++){
-        // console.log('is changed and result is : ',temp_user.basket[i]);
-        // console.log('id is : ',temp_user.basket[i]);
         const product = await Product.findOne({refid:temp_user.basket[i]});
-        console.log('product : ',product)
-        console.log('--------------');
         basket_products.push(product);
     }
     return basket_products;

@@ -1,5 +1,5 @@
 <template>
-    <div class="row flex justify-content-around mt-5">
+    <div class="row flex justify-content-around mt-5 mx-0">
         
         <div class="col-md-6 flex justify-content-around" >
             <div class="row py-3">

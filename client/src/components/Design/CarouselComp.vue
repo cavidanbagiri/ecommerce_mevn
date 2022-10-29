@@ -1,20 +1,22 @@
 <template>
-    <div>
-
-        <div id="default-carousel" class="relative py-1" data-carousel="static">
+        <div class="relative mx-0 py-1" data-carousel="static">
             <!-- Carousel wrapper -->
+            <transition name="zoom" type="animation" appear>
             <div class="relative h-56 overflow-hidden md:h-96">
                 <!-- Item 1 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20" data-carousel-item="" v-for="i in images.length" :key="i">
-                    <p>{{images.length}}</p>
-                    <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                    <img :src="images[count]" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div class="absolute inset-0 " data-carousel-item="" v-for="i in images.length" :key="i">
+                        <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                        <img :src="images[count]" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        
+                    </div>
                 </div>
-            </div>
+            </transition>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <div  v-for="i in images.length" :key="i-=1">
-                    <button :style="i===count ? {'backgroundColor':'rgb(196, 98, 98)'} : {'backgroundColor':'rgb(161, 159, 159)'}" type="button" class="w-3 h-3 rounded-full" @click="changeIndicator(i)" ></button>
+                <div v-for="i in images.length" :key="i -= 1">
+                    <button
+                        :style="i === count ? { 'backgroundColor': 'rgb(196, 98, 98)' } : { 'backgroundColor': 'rgb(161, 159, 159)' }"
+                        type="button" class="w-3 h-3 rounded-full" @click="changeIndicator(i)"></button>
                 </div>
             </div>
             <!-- Slider controls -->
@@ -44,33 +46,72 @@
                 </span>
             </button>
         </div>
-
-    </div>
+    
 </template>
 
 <script setup>
 
-    import {ref} from 'vue';
+import { ref } from 'vue';
 
-    let count = ref(0);
-    const images = ref([
-        'src/assets/sliderimages/image4.jpg',
-        'src/assets/sliderimages/image2.jpg',
-        'src/assets/sliderimages/image3.jpg',
-        'src/assets/sliderimages/image1.jpg'
-    ])
+let flag = ref(true);
 
-
-    const next = () => count.value < images.value.length-1 ? count.value+=1 : count.value = 0
-    const prev = () => count.value > 0 ? count.value-=1 : count.value=2;
-    const changeIndicator = (i) =>{
-        count.value = i;
-        console.log('i is : ',i, ' count is : ',count.value);
-
-    }
-
-    setInterval(next,3000)
+let count = ref(0);
+const images = ref([
+    'src/assets/sliderimages/image4.jpg',
+    'src/assets/sliderimages/image2.jpg',
+    'src/assets/sliderimages/image3.jpg',
+    'src/assets/sliderimages/image1.jpg'
+])
 
 
+const next = () => count.value < images.value.length - 1 ? count.value += 1 : count.value = 0
+const prev = () => count.value > 0 ? count.value -= 1 : count.value = 2;
+const changeIndicator = (i) => count.value = i;
+setInterval(next, 3000)
 
 </script>
+ 
+<style>
+h2 {
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.zoom-enter-active {
+    animation: zoom-in 0.50s linear forwards;
+}
+
+.zoom-leave-active {
+    animation: zoom-out 0.50s linear forwards;
+}
+
+.zoom-enter-from {
+    opacity: 0;
+}
+
+.zoom-leave-to {
+    opacity: 0
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0, 0);
+        transition: all 0.25s linear;
+    }
+    to {
+        transform: scale(1, 1);
+        transition: all 0.25s linear;
+    }
+}
+
+@keyframes zoom-out {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(0, 0);
+    }
+}
+
+</style>

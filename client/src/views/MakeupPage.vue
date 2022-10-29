@@ -1,7 +1,6 @@
 
 <template>
-    <div class="row flex justify-content-center mt-2">
-        <span v-font-size="28">Make Up</span>
+    <div class="row flex justify-content-center mt-2 mx-0">
         <ProductLeftSideFilter/>
         <ProductMainSide />
     </div>

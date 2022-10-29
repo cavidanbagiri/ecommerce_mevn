@@ -2,7 +2,7 @@
 <template>
     <div>
 
-        <nav class="navbar navbar-expand-lg p-0 navbar-light border-bottom">
+        <nav class="navbar navbar-expand-lg p-0 navbar-light border-bottom mx-0">
             <div class="container-fluid">
                 <router-link class=" text-xl fw-bold" :to="{name:'Home'}" style="font-style: oblique;">Parfumery
                 </router-link>
@@ -58,7 +58,7 @@
                             <input class="form-control ms-2 border border-secondary my-1 rounded-3xl" @keyup="searchFunc" type="search" placeholder="Search" aria-label="Search" />
                         
                     </ul>
-                    <form class="d-flex align-items-center">
+                    <form class="d-flex align-items-center me-4 mt-1">
 
                         <router-link :to="{name:'Catalog'}" class="nav-link active text-stone-300 text-md px-1">
                             

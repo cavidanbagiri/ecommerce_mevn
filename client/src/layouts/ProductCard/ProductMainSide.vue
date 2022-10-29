@@ -3,7 +3,7 @@
     <div class="col-md-10 m-0">
         <div class="row flex justify-content-between p-1 m-0">
         <div v-for="(product, index) in products" :key="index" class="card border-none mx-1" 
-        style="width: 15rem;">
+        style="width: 14rem;">
             <ProductMainSideCardItem :product="product" />
         </div>
     </div>

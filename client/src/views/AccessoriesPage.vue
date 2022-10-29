@@ -1,7 +1,7 @@
 
 <template>
 
-    <div class="row flex justify-content-center mt-2">
+    <div class="row flex justify-content-center mt-2 mx-0">
         
         <Suspense>
             <template #default>

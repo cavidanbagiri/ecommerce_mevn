@@ -53,6 +53,7 @@ const login = (req, res) =>{
 
 const addProductBasket = (req, res) => {
     const product = req.body;
+    console.log('entering product is : ',product);
     addProductToBasket(product).then((respond)=>{
         res.status(200).json({'respond for adding Product' : respond});
     }).catch((err)=>{

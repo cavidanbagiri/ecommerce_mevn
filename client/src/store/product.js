@@ -121,7 +121,6 @@ export default {
         },
         //Load Current Products when enter view page
         async LOAD_ALL_PRODUCTS({ state }, product_catalog) {
-            // console.log('env var : ',import.meta.env.VITE_API_URL);
             await axios.get('api/'+product_catalog).
                 then((respond) => {
                     this.commit('SETALLPRODUCTS', respond.data);
@@ -167,7 +166,8 @@ export default {
         },
         //Get One Product By id
         async LOAD_ONE_DATA({state}, url){
-            await axios.get('api/product/'+url.id+'?catalog='+url.catalog).
+            console.log('console work');
+            await axios.get('/api/product/'+url.id+'?catalog='+url.catalog).
                 then(async(respond) => {
                     await this.commit('SETPRODUCTITEM', respond)
                 }).catch((err) => {

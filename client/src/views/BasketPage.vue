@@ -17,9 +17,7 @@ onMounted(async()=>{
 })
 
 let basket_product = computed(()=>{
-
     return store.getters['GETBASKETDATA'];
-
 })
 
 

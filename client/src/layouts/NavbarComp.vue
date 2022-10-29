@@ -74,7 +74,7 @@
                             <button type="button" class="btn border-none position-relative">
                                 <i class="fa-solid fa-bag-shopping fa-xl" style="color:black"></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    2
+                                    {{basket_item_size}}
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button>
@@ -104,8 +104,18 @@
 <script setup>
 
     import {useStore} from 'vuex';
-    import {computed, ref} from 'vue';
+    import {computed, ref, onMounted} from 'vue';
     const store = useStore();
+
+
+    //Get Basket page for getting basket items size
+    onMounted(()=>{
+        store.dispatch('GETBASKET');
+    })
+    //Get Basket Size;
+    let basket_item_size = computed(()=>{
+        return store.getters['GETBASKETDATA'].length;
+    })
 
     const searchFunc= (e) => {
         store.dispatch('LOADSEARCHBARPRODUCTS', e.target.value);

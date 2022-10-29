@@ -33,6 +33,8 @@ import ProductImagesSectionComp from '../layouts/ProductItem/ProductImagesSectio
 import ProductInformationSection from '../layouts/ProductItem/ProductInformationSection.vue';
 import ProductDescriptionSection from '../layouts/ProductItem/ProductDescriptionSection.vue';
 
+let isOpen = ref(false);
+
 const route = useRoute();
 const store = useStore();
 
@@ -45,9 +47,10 @@ onMounted(async ()=>{
     current_item.value = store.getters["GETPRODUCTITEM"];
     file_name.value = 'http://localhost:3000/'+current_item?.value?.file;
 })
-
-
-
-
 </script>
 
+<style>
+
+    
+
+</style>

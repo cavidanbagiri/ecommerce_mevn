@@ -29,7 +29,6 @@ export default {
         async REGISTERCURRENTUSER({state},userData){
             await axios.post('http://localhost:3000/users/register', userData).
             then((respond)=>{
-                console.log('1 current user : ',respond.data);
             }).catch((err)=>{
                 console.log('register user err : ', err);
             })
@@ -38,8 +37,6 @@ export default {
         async LOGINCURRENTUSER({state},userData){
             await axios.post('http://localhost:3000/users/login', userData).
             then(async (respond)=>{
-                console.log('token is : ',respond.data);
-                // console.log('token is : ',respond.data.message.tokens.access_token);
                 localStorage.setItem('current_user',respond.data.message.tokens.access_token);
                 let token = localStorage.getItem('current_user');
                 try{
@@ -70,8 +67,6 @@ export default {
         async AddBasket({state}, productData){
             await axios.post('http://localhost:3000/users/addproduct', productData).
             then((respond)=>{
-                console.log('product data : ',productData);
-                console.log('respond data : ',respond.data);
             }).catch((err)=>{
                 console.log('register user err : ', err);
             })
@@ -80,7 +75,6 @@ export default {
         async GETBASKET({state}){
             await axios.get('http://localhost:3000/users/basket').
             then((respond)=>{
-                console.log('basket product data : ',respond.data);
                 this.commit('SETBASKETDATA',respond.data);
             }).catch((err)=>{
                 console.log('basket product err : ', err);
